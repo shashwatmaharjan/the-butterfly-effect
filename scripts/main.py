@@ -1,29 +1,21 @@
 # Import necessary libraries
 import os
-import sympy as sp
+import numpy as np
 
-# Lorenz ODE
-def lorenz_ode(sigma, rho, beta):
+from scipy.integrate import solve_ivp
+
+# Function to define the Lorenz ODEs
+def lorenz_ode(t, state, sigma, rho, beta):
     
-    # Define the independent variable
-    t = sp.symbols('t')
+    # Unpack the state vector
+    x, y, z = state
     
-    # Define the dependent variables
-    x = sp.Function('x')(t)
-    y = sp.Function('y')(t)
-    z = sp.Function('z')(t)
+    # Define the system of Lorenz ODEs
+    dx_dt = sigma * (y - x)
+    dy_dt = x * (rho - z) - y
+    dz_dt = x * y - beta * z
     
-    # Define derivatives for the Lorenz ODE
-    x_dot = sigma*(y - x)
-    y_dot = x*(rho - z) - y
-    z_dot = x*y - beta*z
-    
-    # Convert the derivatives to numerical functions using lambdify
-    x_dot = sp.lambdify((x, y, z), x_dot)
-    y_dot = sp.lambdify((x, y, z), y_dot)
-    z_dot = sp.lambdify((x, y, z), z_dot)
-    
-    return x_dot, y_dot, z_dot
+    return [dx_dt, dy_dt, dz_dt]
     
 
 # Main function
@@ -36,7 +28,7 @@ def main():
     
     # Get the ODE for lorenz equation
     x_dot, y_dot, z_dot = lorenz_ode(sigma, rho, beta)
-    
+
 
 if __name__ == '__main__':
     
