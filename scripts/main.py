@@ -44,6 +44,9 @@ def main():
     # Solve the ODEs using solve_ivp
     solution = solve_ivp(lorenz_ode, [t0, tf], initial_state, args=(sigma, rho, beta), t_eval=timepoints)
 
+    # Extract the solution components
+    x, y, z = solution.y
+
 
 if __name__ == '__main__':
     
