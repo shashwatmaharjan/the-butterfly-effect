@@ -8,6 +8,7 @@ from scipy.integrate import solve_ivp
 def lorenz_ode(t, state, sigma, rho, beta):
     
     # Unpack the state vector
+    # These are the dependent variables
     x, y, z = state
     
     # Define the system of Lorenz ODEs
@@ -25,6 +26,23 @@ def main():
     sigma = 10
     rho = 28
     beta = 8/3
+    
+    # Initial conditions
+    x0 = 1
+    y0 = 1
+    z0 = 1
+    initial_state = [x0, y0, z0]
+    
+    # Time parameters
+    t0 = 0
+    tf = 10
+    dt = 0.01
+    
+    # Timepoints for the solution
+    timepoints = np.arange(t0, tf, dt)
+    
+    # Solve the ODEs using solve_ivp
+    solution = solve_ivp(lorenz_ode, [t0, tf], initial_state, args=(sigma, rho, beta), t_eval=timepoints)
 
 
 if __name__ == '__main__':
