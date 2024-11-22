@@ -25,9 +25,6 @@ def main():
     sigma = 10
     rho = 28
     beta = 8/3
-    
-    # Get the ODE for lorenz equation
-    x_dot, y_dot, z_dot = lorenz_ode(sigma, rho, beta)
 
 
 if __name__ == '__main__':
