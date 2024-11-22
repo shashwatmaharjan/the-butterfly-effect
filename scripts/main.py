@@ -18,13 +18,24 @@ def lorenz_ode(sigma, rho, beta):
     y_dot = x*(rho - z) - y
     z_dot = x*y - beta*z
     
-    return [x_dot, y_dot, z_dot]
+    # Convert the derivatives to numerical functions using lambdify
+    x_dot = sp.lambdify((x, y, z), x_dot)
+    y_dot = sp.lambdify((x, y, z), y_dot)
+    z_dot = sp.lambdify((x, y, z), z_dot)
+    
+    return x_dot, y_dot, z_dot
     
 
 # Main function
 def main():
     
-    pass
+    # Define constants
+    sigma = 10
+    rho = 8/3
+    beta = 28
+    
+    # Get the ODE for lorenz equation
+    x_dot, y_dot, z_dot = lorenz_ode(sigma, rho, beta)
     
 
 if __name__ == '__main__':
