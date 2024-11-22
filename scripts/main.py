@@ -23,8 +23,8 @@ def main():
     
     # Define constants
     sigma = 10
-    rho = 8/3
-    beta = 28
+    rho = 28
+    beta = 8/3
     
     # Get the ODE for lorenz equation
     x_dot, y_dot, z_dot = lorenz_ode(sigma, rho, beta)
