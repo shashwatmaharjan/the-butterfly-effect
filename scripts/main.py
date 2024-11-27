@@ -6,6 +6,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # For the web app
+import dash
 from dash import Dash, dcc, html, Input, Output, State
 import plotly.graph_objects as go
 
@@ -89,7 +90,7 @@ def main():
                         'justify-content':'center',
                         'padding': '5px'}),
                     
-        # Container for the two columns
+        # Container for the two columns for the initial conditions
         html.Div([
             # Left column
             # Initial condition 1
@@ -150,8 +151,20 @@ def main():
                           'padding': '20px'}),
             
         ], style={'display': 'flex',
-                  'justify-content': 'space-between'}),
-
+                  'justify-content': 'space-between',
+                  'width': '100%',}),
+        
+        # Container for the plots
+        html.Div([
+            # x vs time
+            html.Div([dcc.Graph(id='x-time-plot', style={'width': '33%'})]),
+            html.Div([dcc.Graph(id='y-time-plot', style={'width': '33%'})]),
+            html.Div([dcc.Graph(id='z-time-plot', style={'width': '33%'})]),],
+                 
+                 style={'display': 'flex',
+                        'justify-content': 'space-between',
+                        'width': '100%'}),
+        
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
         
