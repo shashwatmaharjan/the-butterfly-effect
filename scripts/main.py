@@ -60,12 +60,16 @@ def main():
                 children='The Butterfly Effect',
                 style={'textAlign': 'center'}),
         
+        html.H2(id='sub-title',
+                children='Try changing the initial conditions and see how the trajectories diverge.',
+                style={'textAlign': 'center'}),
+        
         # Container for the two columns
         html.Div([
             # Left column
             # Initial condition 1
             html.Div([
-                html.H2(id='initial_condition_1',
+                html.H3(id='initial_condition_1',
                         children='Initial Condition 1',
                         style={'textAlign': 'center'}),
                         
@@ -83,7 +87,7 @@ def main():
             # Right column
             # Initial condition 2
             html.Div([
-                html.H2(id='initial_condition_2',
+                html.H3(id='initial_condition_2',
                         children='Initial Condition 2',
                         style={'textAlign': 'center'}),
                         
