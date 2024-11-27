@@ -69,7 +69,7 @@ def main():
             # Left column
             # Initial condition 1
             html.Div([
-                html.H3(id='initial_condition_1',
+                html.H3(id='ic-1',
                         children='Initial Condition 1',
                         style={'textAlign': 'center'}),
                         
@@ -87,7 +87,7 @@ def main():
             # Right column
             # Initial condition 2
             html.Div([
-                html.H3(id='initial_condition_2',
+                html.H3(id='ic-2',
                         children='Initial Condition 2',
                         style={'textAlign': 'center'}),
                         
