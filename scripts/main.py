@@ -2,7 +2,12 @@
 import os
 import numpy as np
 
+# For solving the ODEs
 from scipy.integrate import solve_ivp
+
+# For the web app
+from dash import Dash, dcc, html, Input, Output
+import plotly.graph_objects as go
 
 # Function to define the Lorenz ODEs
 def lorenz_ode(t, state, sigma, rho, beta):
@@ -42,15 +47,72 @@ def main():
     rho = 28
     beta = 8/3
     
-    # Get first set of solution for a particular initial condition
+    # Get solution for a particular initial condition
     initial_state = [0, 1, 0] # x0, y0, z0
     x1, y1, z1 = solve_lorenz_ode(sigma, rho, beta, initial_state, 0, 10, 0.01)
+    
+    app = Dash(__name__)
+    
+    app.layout = html.Div([
+        
+        # Title
+        html.H1(id='title',
+                children='The Butterfly Effect',
+                style={'textAlign': 'center'}),
+        
+        # Container for the two columns
+        html.Div([
+            # Left column
+            # Initial condition 1
+            html.Div([
+                html.H2(id='initial_condition_1',
+                        children='Initial Condition 1',
+                        style={'textAlign': 'center'}),
+                        
+                html.Div([dcc.Input(id='x0_1', type = 'number', value = 0,),
+                        dcc.Input(id='y0_1', type = 'number', value = 1,),
+                        dcc.Input(id='z0_1', type = 'number', value = 0,),], 
+                        
+                        style={'display': 'flex',
+                                'justify-content': 'center',
+                                'gap': '20px'}), 
+                
+                ], style={'width': '50%',
+                        'padding': '20px'}),
+            
+            # Right column
+            # Initial condition 2
+            html.Div([
+                html.H2(id='initial_condition_2',
+                        children='Initial Condition 2',
+                        style={'textAlign': 'center'}),
+                        
+                html.Div([dcc.Input(id='x0_2', type = 'number', value = 1,),
+                        dcc.Input(id='y0_2', type = 'number', value = 0,),
+                        dcc.Input(id='z0_2', type = 'number', value = 1,),], 
+                        
+                        style={'display': 'flex',
+                                'justify-content': 'center',
+                                'gap': '20px'}), 
+                
+                ], style={'width': '50%',
+                        'padding': '20px'}),
+            
+        ], style={'display': 'flex',
+                  'justify-content': 'space-between'}),
+
+        ])
+        
+    return app
 
 
 if __name__ == '__main__':
     
+    # Call the main function
+    app = main()
+    
+    # Run the app server
+    app.run_server(debug=True)
+    
     # Clear the console regardless of the OS
     os.system('cls' if os.name == 'nt' else 'clear')
-    
-    # Call the main function
-    main()
