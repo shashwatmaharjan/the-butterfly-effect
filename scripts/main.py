@@ -54,6 +54,14 @@ def main():
     tf = 10
     dt = 0.01
     
+    # First initial state
+    initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
+    solution_1 = solve_lorenz_ode(sigma, rho, beta, initial_state_1, t0, tf, dt) # x1, y1, z1
+    
+    # Second initial state
+    initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
+    solution_2 = solve_lorenz_ode(sigma, rho, beta, initial_state_2, t0, tf, dt) # x2, y2, z2
+    
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
     
