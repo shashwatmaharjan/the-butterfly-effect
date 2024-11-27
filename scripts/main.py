@@ -6,7 +6,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # For the web app
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output, State
 import plotly.graph_objects as go
 
 # Function to define the Lorenz ODEs
@@ -65,6 +65,19 @@ def main():
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center'}),
         
+        # Visualize button
+        html.Div([html.Button(id='visualize-button', children='Visualize', style={'display': 'block',
+                                                                                  'background-color': '#4CAF50',
+                                                                                  'color': 'white',
+                                                                                  'border': 'none',
+                                                                                  'border-radius': '10px',
+                                                                                  'cursor': 'pointer',
+                                                                                  'text-align': 'center',
+                                                                                  'padding': '5px 10px'},)],
+                 style={'display': 'flex',
+                        'justify-content':'center',
+                        'padding': '5px'}),
+                    
         # Container for the two columns
         html.Div([
             # Left column
