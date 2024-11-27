@@ -87,13 +87,19 @@ def main():
                         children='Initial Condition 1',
                         style={'textAlign': 'center'}),
                         
-                html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = 0, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),
-                        html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = 1, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),
-                        html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = 0, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),],
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                                                                                                                                   'text-align': 'center'}),]),
+                        html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
+                                                                                                                                 'text-align': 'center'}),]),
+                        html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                                                                                                                                 'text-align': 'center'}),]),],
                         
-                        style={'display': 'flex', 'justify-content': 'center', 'gap': '20px'}), 
+                        style={'display': 'flex',
+                               'justify-content': 'center',
+                               'gap': '20px'}), 
                 
-                ], style={'width': '50%', 'padding': '20px'}),
+                ], style={'width': '50%',
+                          'padding': '20px'}),
             
             # Right column
             # Initial condition 2
@@ -102,17 +108,25 @@ def main():
                         children='Initial Condition 2',
                         style={'textAlign': 'center'}),
                         
-                html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = 0, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),
-                        html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = 1, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),
-                        html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = 0, style={'width': '40px', 'text-align': 'center'}, min=-10, max=10, required=True),]),],
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = 0, min=-10, max=10, required=True,  style={'width': '40px',
+                                                                                                                                    'text-align': 'center'}),]),
+                        html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
+                                                                                                                                 'text-align': 'center'}),]),
+                        html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                                                                                                                                 'text-align': 'center'}),]),],
                         
-                        style={'display': 'flex', 'justify-content': 'center', 'gap': '20px'}), 
+                        style={'display': 'flex',
+                               'justify-content': 'center',
+                               'gap': '20px'}), 
                 
-                ], style={'width': '50%', 'padding': '20px'}),
+                ], style={'width': '50%',
+                          'padding': '20px'}),
             
-        ], style={'display': 'flex', 'justify-content': 'space-between'}),
+        ], style={'display': 'flex',
+                  'justify-content': 'space-between'}),
 
-        ], style={'background-color': '#f0f5f9', 'min-height': '100vh'})
+        ], style={'background-color': '#f0f5f9',
+                  'min-height': '100vh'})
         
     return app
 
