@@ -69,9 +69,9 @@ def main():
                         children='Initial Condition 1',
                         style={'textAlign': 'center'}),
                         
-                html.Div([dcc.Input(id='x0_1', type = 'number', value = 0,),
-                        dcc.Input(id='y0_1', type = 'number', value = 1,),
-                        dcc.Input(id='z0_1', type = 'number', value = 0,),], 
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = 0),]),
+                        html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = 1),]),
+                        html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = 0),]),],
                         
                         style={'display': 'flex',
                                 'justify-content': 'center',
@@ -87,9 +87,9 @@ def main():
                         children='Initial Condition 2',
                         style={'textAlign': 'center'}),
                         
-                html.Div([dcc.Input(id='x0_2', type = 'number', value = 1,),
-                        dcc.Input(id='y0_2', type = 'number', value = 0,),
-                        dcc.Input(id='z0_2', type = 'number', value = 1,),], 
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = 0),]),
+                        html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = 1),]),
+                        html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = 0),]),],
                         
                         style={'display': 'flex',
                                 'justify-content': 'center',
