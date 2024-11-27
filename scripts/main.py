@@ -156,9 +156,9 @@ def main():
                 ], style={'width': '50%',
                           'padding': '20px'}),
             
-        ], style={'display': 'flex',
-                  'justify-content': 'space-between',
-                  'width': '100%',}),
+            ], style={'display': 'flex',
+                    'justify-content': 'space-between',
+                    'width': '100%',}),
         
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
