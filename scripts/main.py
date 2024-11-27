@@ -52,10 +52,6 @@ def main():
     tf = 10
     dt = 0.01
     
-    # Get solution for a particular initial condition
-    initial_state = [0, 1, 0] # x0, y0, z0
-    x1, y1, z1 = solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt)
-    
     app = Dash(__name__)
     
     app.layout = html.Div([
