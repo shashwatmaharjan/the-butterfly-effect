@@ -52,6 +52,10 @@ def main():
     tf = 10
     dt = 0.01
     
+    # Define common styles for font
+    font_style = {'family': 'Courier New, Courier, monospace'}
+    
+    # Create the Dash app
     app = Dash(__name__)
     
     app.layout = html.Div([
@@ -59,21 +63,25 @@ def main():
         # Title
         html.H1(id='title',
                 children='The Butterfly Effect',
-                style={'textAlign': 'center'}),
+                style={'textAlign': 'center',
+                       'font-family': font_style['family'],}),
         
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
-                style={'textAlign': 'center'}),
+                style={'textAlign': 'center',
+                       'font-family': font_style['family'],}),
         
         # Visualize button
-        html.Div([html.Button(id='visualize-button', children='Visualize', style={'display': 'block',
+        html.Div([html.Button(id='visualize-button', children='Generate', style={'display': 'block',
                                                                                   'background-color': '#4CAF50',
                                                                                   'color': 'white',
                                                                                   'border': 'none',
                                                                                   'border-radius': '10px',
                                                                                   'cursor': 'pointer',
                                                                                   'text-align': 'center',
-                                                                                  'padding': '5px 10px'},)],
+                                                                                  'padding': '5px 10px',
+                                                                                  'font-family': font_style['family'],
+                                                                                  'font-size': '25px'},)],
                  style={'display': 'flex',
                         'justify-content':'center',
                         'padding': '5px'}),
@@ -85,18 +93,23 @@ def main():
             html.Div([
                 html.H3(id='ic-1',
                         children='Initial Condition 1',
-                        style={'textAlign': 'center'}),
+                        style={'textAlign': 'center',
+                               'font-family': font_style['family'],}),
                         
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
-                                                                                                                                   'text-align': 'center'}),]),
+                                                                                                                                   'text-align': 'center',
+                                                                                                                                   'font-family': font_style['family'],}),]),
                         html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
-                                                                                                                                 'text-align': 'center'}),]),
+                                                                                                                                 'text-align': 'center',
+                                                                                                                                 'font-family': font_style['family'],}),]),
                         html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
-                                                                                                                                 'text-align': 'center'}),]),],
+                                                                                                                                 'text-align': 'center',
+                                                                                                                                 'font-family': font_style['family'],}),]),],
                         
                         style={'display': 'flex',
                                'justify-content': 'center',
-                               'gap': '20px'}), 
+                               'gap': '20px',
+                               'font-family': font_style['family']}), 
                 
                 ], style={'width': '50%',
                           'padding': '20px'}),
@@ -106,18 +119,23 @@ def main():
             html.Div([
                 html.H3(id='ic-2',
                         children='Initial Condition 2',
-                        style={'textAlign': 'center'}),
+                        style={'textAlign': 'center',
+                               'font-family': font_style['family'],}),
                         
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = 0, min=-10, max=10, required=True,  style={'width': '40px',
-                                                                                                                                    'text-align': 'center'}),]),
+                                                                                                                                    'text-align': 'center',
+                                                                                                                                   'font-family': font_style['family'],}),]),
                         html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
-                                                                                                                                 'text-align': 'center'}),]),
+                                                                                                                                 'text-align': 'center',
+                                                                                                                                 'font-family': font_style['family'],}),]),
                         html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
-                                                                                                                                 'text-align': 'center'}),]),],
+                                                                                                                                 'text-align': 'center',
+                                                                                                                                 'font-family': font_style['family'],}),]),],
                         
                         style={'display': 'flex',
                                'justify-content': 'center',
-                               'gap': '20px'}), 
+                               'gap': '20px',
+                               'font-family': font_style['family']}), 
                 
                 ], style={'width': '50%',
                           'padding': '20px'}),
