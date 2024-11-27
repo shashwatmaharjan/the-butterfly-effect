@@ -17,26 +17,10 @@ def lorenz_ode(t, state, sigma, rho, beta):
     dz_dt = x * y - beta * z
     
     return [dx_dt, dy_dt, dz_dt]
-    
 
-# Main function
-def main():
-    
-    # Define constants
-    sigma = 10
-    rho = 28
-    beta = 8/3
-    
-    # Initial conditions
-    x0 = 1
-    y0 = 1
-    z0 = 1
-    initial_state = [x0, y0, z0]
-    
-    # Time parameters
-    t0 = 0
-    tf = 10
-    dt = 0.01
+
+# Function to solve the Lorenz ODEs
+def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     
     # Timepoints for the solution
     timepoints = np.arange(t0, tf, dt)
@@ -46,6 +30,21 @@ def main():
 
     # Extract the solution components
     x, y, z = solution.y
+    
+    return x, y, z
+
+
+# Main function
+def main():
+    
+    # Define constants 
+    sigma = 10
+    rho = 28
+    beta = 8/3
+    
+    # Get first set of solution for a particular initial condition
+    initial_state = [0, 1, 0] # x0, y0, z0
+    x1, y1, z1 = solve_lorenz_ode(sigma, rho, beta, initial_state, 0, 10, 0.01)
 
 
 if __name__ == '__main__':
