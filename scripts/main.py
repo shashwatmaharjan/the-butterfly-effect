@@ -6,8 +6,9 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # For the web app
-import dash
-from dash import Dash, dcc, html, Input, Output, State
+import matplotlib.pyplot as plt
+from dash import Dash, dcc, html
+from plotly.tools import mpl_to_plotly
 import plotly.graph_objects as go
 
 # Function to define the Lorenz ODEs
@@ -58,6 +59,11 @@ def main():
     
     # Define the default border radius
     border_radius = '2px'
+    
+    # Define tight layout for the plots
+    tight_layout = go.Layout(margin=dict(t=20, b=20, l=20, r=20),
+                             xaxis = dict(showgrid=False, range=[0, None]),
+                             yaxis = dict(showgrid=False))
     
     # Create the Dash app
     app = Dash(__name__)
@@ -153,17 +159,6 @@ def main():
         ], style={'display': 'flex',
                   'justify-content': 'space-between',
                   'width': '100%',}),
-        
-        # Container for the plots
-        html.Div([
-            # x vs time
-            html.Div([dcc.Graph(id='x-time-plot', style={'width': '33%'})]),
-            html.Div([dcc.Graph(id='y-time-plot', style={'width': '33%'})]),
-            html.Div([dcc.Graph(id='z-time-plot', style={'width': '33%'})]),],
-                 
-                 style={'display': 'flex',
-                        'justify-content': 'space-between',
-                        'width': '100%'}),
         
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
