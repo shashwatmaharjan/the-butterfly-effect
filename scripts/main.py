@@ -130,11 +130,6 @@ def main():
     # Define the default border radius
     border_radius = '2px'
     
-    # Define tight layout for the plots
-    tight_layout = go.Layout(margin=dict(t=20, b=20, l=20, r=20),
-                             xaxis = dict(showgrid=False, range=[0, None]),
-                             yaxis = dict(showgrid=False))
-    
     # Create the Dash app
     app = Dash(__name__)
     
