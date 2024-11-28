@@ -246,7 +246,8 @@ def main():
                 html.H3(id='ic-1',
                         children='Initial Position 1',
                         style={'textAlign': 'center',
-                               'font-family': font_style['family'],}),
+                               'font-family': font_style['family'],
+                                'color': plot_color_1}),
                         
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = default_initial_state_1[0], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                    'text-align': 'center',
@@ -268,21 +269,24 @@ def main():
                 
                     html.H3(children='Sigma (σ)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                    'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-1', min=7, max=12, step=1,
                                                    value=default_sigma)]),
                 
                     html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                   'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='rho-1', min=27, max=32, step=1,
                                                    value=default_rho)]),]),
                     
                     html.H3(children='Beta (β)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                   'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='beta-1', min=2, max=2.5, step=0.1,
                                                    value=default_beta)]),])
@@ -298,7 +302,8 @@ def main():
                 html.H3(id='ic-2',
                         children='Initial Position 2',
                         style={'textAlign': 'center',
-                               'font-family': font_style['family'],}),
+                               'font-family': font_style['family'],
+                               'color': plot_color_2}),
                         
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = default_initial_state_2[0], min=-10, max=10, required=True,  style={'width': '40px',
                                                                                                                                     'text-align': 'center',
@@ -320,21 +325,24 @@ def main():
                 
                     html.H3(children='Sigma (σ)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                   'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-2', min=7, max=12, step=1,
                                                    value=default_sigma)]),
                 
                     html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                   'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='rho-2', min=27, max=32, step=1,
                                                    value=default_rho)]),]),
                     
                     html.H3(children='Beta (β)',
                             style={'textAlign': 'center',
-                                   'font-family': font_style['family'],}),
+                                   'font-family': font_style['family'],
+                                   'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='beta-2',min=2, max=2.5, step=0.1,
                                                    value=default_beta)]),])
