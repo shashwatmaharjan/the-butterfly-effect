@@ -177,6 +177,7 @@ def main():
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
+    font_size_inputs = '18px'
     
     # Define the default border radius
     border_radius = '2px'
@@ -252,15 +253,18 @@ def main():
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = default_initial_state_1[0], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                    'text-align': 'center',
                                                                                                                                    'font-family': font_style['family'],
-                                                                                                                                   'border-radius': border_radius}),]),
+                                                                                                                                   'border-radius': border_radius,
+                                                                                                                                   'font-size': font_size_inputs}),]),
                         html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = default_initial_state_1[1], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
-                                                                                                                                 'border-radius': border_radius}),]),
+                                                                                                                                 'border-radius': border_radius,
+                                                                                                                                 'font-size': font_size_inputs}),]),
                         html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = default_initial_state_1[2], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
-                                                                                                                                 'border-radius': border_radius}),]),],
+                                                                                                                                 'border-radius': border_radius,
+                                                                                                                                 'font-size': font_size_inputs}),]),],
                         
                         style={'display': 'flex',
                                'justify-content': 'center',
@@ -308,15 +312,18 @@ def main():
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = default_initial_state_2[0], min=-10, max=10, required=True,  style={'width': '40px',
                                                                                                                                     'text-align': 'center',
                                                                                                                                    'font-family': font_style['family'],
-                                                                                                                                   'border-radius': border_radius}),]),
+                                                                                                                                   'border-radius': border_radius,
+                                                                                                                                   'font-size': font_size_inputs}),]),
                         html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = default_initial_state_2[1], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
-                                                                                                                                 'border-radius': border_radius}),]),
+                                                                                                                                 'border-radius': border_radius,
+                                                                                                                                 'font-size': font_size_inputs}),]),
                         html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = default_initial_state_2[2], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
-                                                                                                                                 'border-radius': border_radius}),]),],
+                                                                                                                                 'border-radius': border_radius,
+                                                                                                                                 'font-size': font_size_inputs}),]),],
                         
                         style={'display': 'flex',
                                'justify-content': 'center',
