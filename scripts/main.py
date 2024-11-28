@@ -47,7 +47,7 @@ def main():
     # Define constants 
     initial_sigma = 10
     initial_rho = 28
-    initial_beta = 8/3
+    initial_beta = 2.3
     
     # Timepoints
     t0 = 0
@@ -147,7 +147,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
-                                                   value=initial_sigma)]),]),
+                                                   value=initial_rho)]),]),
                     
                     
                     html.H3(id='beta-2',
@@ -156,7 +156,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
-                                                   value=initial_sigma)]),])
+                                                   value=initial_beta)]),])
                               
                     ]) 
                 
@@ -203,7 +203,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
-                                                   value=initial_sigma)]),]),
+                                                   value=initial_rho)]),]),
                     
                     html.H3(id='beta-2',
                             children='Beta (β)',
@@ -211,7 +211,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
-                                                   value=initial_sigma)]),])
+                                                   value=initial_beta)]),])
                     ]) 
                 
                 ], style={'width': '50%',
