@@ -42,7 +42,7 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     
 
 # Function to plot the Lorenz ODEs time vs x, y, z
-def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2):
+def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
@@ -65,7 +65,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2):
     
 
 # Function to plot the Lorenz ODEs x, y, z against each other
-def plot_xyz(solution_1, solution_2, color_1, color_2):
+def plot_xyz(solution_1, solution_2, color_1, color_2, background_color):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
@@ -88,7 +88,7 @@ def plot_xyz(solution_1, solution_2, color_1, color_2):
     
 
 # Function to plot the Lorenz ODEs in 3D
-def plot_3d(solution_1, solution_2, color_1, color_2):
+def plot_3d(solution_1, solution_2, color_1, color_2, background_color):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
@@ -124,18 +124,19 @@ def main():
     default_initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
     solution_2 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_2, t0, tf, dt) # x2, y2, z2
     
-    # Define colors for the plots
-    color_1 = 'teal'
-    color_2 = 'orange'
+    # Define colors
+    dashboard_background_color = 'f0f5f9'
+    plot_color_1 = 'teal'
+    plot_color_2 = 'orange'
     
     # Plot of time vs x, y, z
-    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2)
+    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2)
     
     # Plot of x, y, z against each other
-    fig2 = plot_xyz(solution_1, solution_2, color_1, color_2)
+    fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2)
     
     # Plot of x, y, z in 3D
-    fig3 = plot_3d(solution_1, solution_2, color_1, color_2)
+    fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2)
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
@@ -296,7 +297,7 @@ def main():
                     'justify-content': 'space-between',
                     'width': '100%',}),
         
-        ], style={'background-color': '#f0f5f9',
+        ], style={'background-color': dashboard_background_color,
                   'min-height': '100vh'})
     
     # Add callbacks to reset the values to default
