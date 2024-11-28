@@ -159,8 +159,8 @@ def main():
     
     # Define colors
     dashboard_background_color = '#f0f5f9'
-    plot_color_1 = 'teal'
-    plot_color_2 = 'orange'
+    plot_color_1 = '#0000FF' # blue
+    plot_color_2 = '#FFA500' # orange
     
     # Plot of time vs x, y, z
     fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color)
