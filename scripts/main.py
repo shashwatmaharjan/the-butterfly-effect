@@ -63,12 +63,12 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
         
     # Update layout to remove grid
     fig.update_layout(
-        xaxis=dict(showgrid=False),
-        yaxis=dict(showgrid=False),
-        xaxis2=dict(showgrid=False),
-        yaxis2=dict(showgrid=False),
-        xaxis3=dict(showgrid=False),
-        yaxis3=dict(showgrid=False),
+        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
@@ -105,12 +105,12 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
         
     # Update layout to remove grid
     fig.update_layout(
-        xaxis=dict(showgrid=False),
-        yaxis=dict(showgrid=False),
-        xaxis2=dict(showgrid=False),
-        yaxis2=dict(showgrid=False),
-        xaxis3=dict(showgrid=False),
-        yaxis3=dict(showgrid=False),
+        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
@@ -139,9 +139,9 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     # Update layout to remove grid
     fig.update_layout(
         scene=dict(
-            xaxis=dict(showgrid=False),
-            yaxis=dict(showgrid=False),
-            zaxis=dict(showgrid=False)),
+            xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+            yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+            zaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
