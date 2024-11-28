@@ -87,6 +87,21 @@ def plot_xyz(solution_1, solution_2):
     return fig
     
 
+# Function to plot the Lorenz ODEs in 3D
+def plot_3d(solution_1, solution_2):
+    
+    # Make subplots
+    fig = make_subplots(rows=1, cols=1,
+                        specs=[[{'type': 'scatter3d'}],],
+                        subplot_titles=('x(t) vs y(t) vs z(t)'))
+    
+    # Plot x(t) vs y(t) vs z(t)
+    fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines'), row=1, col=1)
+    fig.add_trace(go.Scatter3d(x=solution_2[0], y=solution_2[1], z=solution_2[2], mode='lines'), row=1, col=1)
+    
+    return fig
+
+
 # Main function
 def main():
     
@@ -321,6 +336,9 @@ def main():
     
     # Plot of x, y, z against each other
     fig2 = plot_xyz(solution_1, solution_2)
+    
+    # Plot of x, y, z in 3D
+    fig3 = plot_3d(solution_1, solution_2)
     
     return app
 
