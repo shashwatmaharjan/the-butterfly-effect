@@ -255,6 +255,7 @@ def main():
          State('x0_2', 'value'),
          State('y0_2', 'value'),
          State('z0_2', 'value'),
+         
          State('sigma-1', 'value'),
          State('rho-1', 'value'),
          State('beta-1', 'value'),
