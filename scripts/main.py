@@ -231,7 +231,7 @@ def main():
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
     
-    # Add callbacks to dynamically update the webpage values and plots
+    # Add callbacks to reset the values to default
     @app.callback(
         [Output('x0_1', 'value'),
          Output('y0_1', 'value'),
