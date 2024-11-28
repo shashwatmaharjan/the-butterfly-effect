@@ -394,8 +394,10 @@ def main():
         html.Div([
             dcc.Graph(id='fig1',
                       figure=fig1,
-                      style={'width': '100%',
-                      })],
+                      style={'width': '100%',},
+                      config={'scrollZoom': False}
+                      )
+            ],
             
             style={'width': '100%',
                    'background-color': dashboard_background_color,
@@ -406,8 +408,10 @@ def main():
         html.Div([
             dcc.Graph(id='fig2',
                       figure=fig2,
-                      style={'width': '100%',
-                      })],
+                      style={'width': '100%',},
+                      config={'scrollZoom': False}
+                      )
+            ],
             
             style={'width': '100%',
                    'background-color': dashboard_background_color,
@@ -419,7 +423,8 @@ def main():
             dcc.Graph(id='fig3',
                       figure=fig3,
                       style={'width': '100%',
-                             'height': '100vh'}
+                             'height': '100vh'},
+                      config={'scrollZoom': False}
                       )
             ],
             
