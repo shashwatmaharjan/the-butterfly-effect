@@ -138,8 +138,17 @@ def main():
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=5, max=15, step=1,
+                    html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
                                                    value=initial_sigma)]),
+                
+                    html.H3(id='rho-1',
+                            children='Rho (ρ)',
+                            style={'textAlign': 'center',
+                                   'font-family': font_style['family'],}),
+                    
+                    html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
+                                                   value=initial_sigma)]),])
+                              
                     ]) 
                 
                 ], style={'width': '50%',
@@ -176,8 +185,16 @@ def main():
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=5, max=15, step=1,
+                    html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
                                                    value=initial_sigma)]),
+                
+                    html.H3(id='rho-2',
+                            children='Rho (ρ)',
+                            style={'textAlign': 'center',
+                                   'font-family': font_style['family'],}),
+                    
+                    html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
+                                                   value=initial_sigma)]),])
                     ]) 
                 
                 ], style={'width': '50%',
