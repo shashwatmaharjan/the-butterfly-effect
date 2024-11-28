@@ -155,7 +155,7 @@ def main():
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=2, max=3.65, step=0.33,
+                    html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
                                                    value=initial_sigma)]),])
                               
                     ]) 
@@ -210,7 +210,7 @@ def main():
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=2, max=3.65, step=0.33,
+                    html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
                                                    value=initial_sigma)]),])
                     ]) 
                 
