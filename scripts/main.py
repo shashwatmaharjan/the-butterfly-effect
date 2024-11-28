@@ -368,6 +368,18 @@ def main():
                     'justify-content': 'space-between',
                     'width': '100%',}),
         
+        # Container for the plots
+        html.Div([
+            dcc.Graph(id='fig1',
+                      figure=fig1,
+                      style={'width': '100%',
+                      })],
+            
+            style={'width': '100%',
+                   'background-color': dashboard_background_color,
+                   'margin': '0 auto',}
+        )
+        
         ], style={'background-color': dashboard_background_color,
                   'min-height': '100vh'})
     
