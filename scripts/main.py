@@ -150,10 +150,10 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.2,
+            y=1,
             xanchor="center",
             x=0.5,
-            font=dict(size=font_size))
+            font=dict(size=font_size+2))
     )
     
     return fig
@@ -423,7 +423,9 @@ def main():
             dcc.Graph(id='fig3',
                       figure=fig3,
                       style={'width': '100%',
-                      })],
+                             'height': '100vh'}
+                      )
+            ],
             
             style={'width': '100%',
                    'background-color': dashboard_background_color,
