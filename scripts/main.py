@@ -45,9 +45,9 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
 def main():
     
     # Define constants 
-    initial_sigma = 10
-    initial_rho = 28
-    initial_beta = 2.3
+    default_sigma = 10
+    default_rho = 28
+    default_beta = 2.3
     
     # Timepoints
     t0 = 0
@@ -56,12 +56,12 @@ def main():
     timepoints = np.arange(t0, tf, dt)
     
     # First initial state
-    initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
-    solution_1 = solve_lorenz_ode(initial_sigma, initial_rho, initial_beta, initial_state_1, t0, tf, dt) # x1, y1, z1
+    default_initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
+    solution_1 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_1, t0, tf, dt) # x1, y1, z1
     
     # Second initial state
-    initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
-    solution_2 = solve_lorenz_ode(initial_sigma, initial_rho, initial_beta, initial_state_2, t0, tf, dt) # x2, y2, z2
+    default_initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
+    solution_2 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_2, t0, tf, dt) # x2, y2, z2
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
@@ -128,15 +128,15 @@ def main():
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],}),
                         
-                html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_1', type = 'number', value = default_initial_state_1[0], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                    'text-align': 'center',
                                                                                                                                    'font-family': font_style['family'],
                                                                                                                                    'border-radius': border_radius}),]),
-                        html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
+                        html.Div(['y: ', dcc.Input(id='y0_1', type = 'number', value = default_initial_state_1[1], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
                                                                                                                                  'border-radius': border_radius}),]),
-                        html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                        html.Div(['z: ', dcc.Input(id='z0_1', type = 'number', value = default_initial_state_1[2], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
                                                                                                                                  'border-radius': border_radius}),]),],
@@ -152,7 +152,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
-                                                   value=initial_sigma)]),
+                                                   value=default_sigma)]),
                 
                     html.H3(id='rho-1',
                             children='Rho (ρ)',
@@ -160,7 +160,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
-                                                   value=initial_rho)]),]),
+                                                   value=default_rho)]),]),
                     
                     html.H3(id='beta-1',
                             children='Beta (β)',
@@ -168,7 +168,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
-                                                   value=initial_beta)]),])
+                                                   value=default_beta)]),])
                               
                     ]) 
                 
@@ -183,15 +183,15 @@ def main():
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],}),
                         
-                html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = 0, min=-10, max=10, required=True,  style={'width': '40px',
+                html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = default_initial_state_2[0], min=-10, max=10, required=True,  style={'width': '40px',
                                                                                                                                     'text-align': 'center',
                                                                                                                                    'font-family': font_style['family'],
                                                                                                                                    'border-radius': border_radius}),]),
-                        html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = 1, min=-10, max=10, required=True, style={'width': '40px',
+                        html.Div(['y: ', dcc.Input(id='y0_2', type = 'number', value = default_initial_state_2[1], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
                                                                                                                                  'border-radius': border_radius}),]),
-                        html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = 0, min=-10, max=10, required=True, style={'width': '40px',
+                        html.Div(['z: ', dcc.Input(id='z0_2', type = 'number', value = default_initial_state_2[2], min=-10, max=10, required=True, style={'width': '40px',
                                                                                                                                  'text-align': 'center',
                                                                                                                                  'font-family': font_style['family'],
                                                                                                                                  'border-radius': border_radius}),]),],
@@ -207,7 +207,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
-                                                   value=initial_sigma)]),
+                                                   value=default_sigma)]),
                 
                     html.H3(id='rho-2',
                             children='Rho (ρ)',
@@ -215,7 +215,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
-                                                   value=initial_rho)]),]),
+                                                   value=default_rho)]),]),
                     
                     html.H3(id='beta-2',
                             children='Beta (β)',
@@ -223,7 +223,7 @@ def main():
                                    'font-family': font_style['family'],}),
                     
                     html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
-                                                   value=initial_beta)]),])
+                                                   value=default_beta)]),])
                     ]) 
                 
                 ], style={'width': '50%',
