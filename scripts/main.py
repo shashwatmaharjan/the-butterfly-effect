@@ -171,9 +171,9 @@ def main():
     # Plot of x, y, z in 3D
     fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color)
     
-    fig1.show()
-    fig2.show()
-    fig3.show()
+    # fig1.show()
+    # fig2.show()
+    # fig3.show()
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
@@ -211,6 +211,19 @@ def main():
                                                                                                'margin-right': '10px'},),
                   
                   html.Button(id='reset-button', children='Reset', n_clicks = 0, style={'display': 'block',
+                                                                                        'background-color': '#FF8DA1',
+                                                                                        'color': 'white',
+                                                                                        'border': 'none',
+                                                                                        'border-radius': border_radius,
+                                                                                        'cursor': 'pointer',
+                                                                                        'text-align': 'center',
+                                                                                        'padding': '5px 10px',
+                                                                                        'font-family': font_style['family'],
+                                                                                        'font-size': '25px',
+                                                                                        'margin-left': '10px',
+                                                                                        'margin-right': '10px'},),
+                  
+                  html.Button(id='animate-button', children='Animate', n_clicks = 0, style={'display': 'block',
                                                                                         'background-color': '#0000FF',
                                                                                         'color': 'white',
                                                                                         'border': 'none',
