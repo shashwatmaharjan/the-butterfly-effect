@@ -68,7 +68,9 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
         xaxis2=dict(showgrid=False),
         yaxis2=dict(showgrid=False),
         xaxis3=dict(showgrid=False),
-        yaxis3=dict(showgrid=False)
+        yaxis3=dict(showgrid=False),
+        plot_bgcolor=background_color,
+        paper_bgcolor=background_color,
     )
     
     return fig
@@ -101,7 +103,9 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color):
         xaxis2=dict(showgrid=False),
         yaxis2=dict(showgrid=False),
         xaxis3=dict(showgrid=False),
-        yaxis3=dict(showgrid=False)
+        yaxis3=dict(showgrid=False),
+        plot_bgcolor=background_color,
+        paper_bgcolor=background_color,
     )
     
     return fig
@@ -112,8 +116,7 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
-                        specs=[[{'type': 'scatter3d'}],],
-                        subplot_titles=('x(t) vs y(t) vs z(t)'))
+                        specs=[[{'type': 'scatter3d'}],],)
     
     # Plot x(t) vs y(t) vs z(t)
     fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1'), row=1, col=1)
@@ -124,8 +127,9 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color):
         scene=dict(
             xaxis=dict(showgrid=False),
             yaxis=dict(showgrid=False),
-            zaxis=dict(showgrid=False)
-        )
+            zaxis=dict(showgrid=False)),
+        plot_bgcolor=background_color,
+        paper_bgcolor=background_color,
     )
     
     return fig
@@ -166,6 +170,10 @@ def main():
     
     # Plot of x, y, z in 3D
     fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color)
+    
+    fig1.show()
+    fig2.show()
+    fig3.show()
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
