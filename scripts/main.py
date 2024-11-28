@@ -42,7 +42,7 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
 
 
 # Function to make subplots for plotting seven combination of trajectories
-def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 'yellow'):
+def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 'orange'):
     
     # Define the spacing for the y-ticks
     abscissa_num_ticks = 10
@@ -68,11 +68,11 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     z_value_ticks = np.linspace(smallest_z_value, largest_z_value, ordinate_num_ticks).astype(int)
     
     # Figure
-    fig, ax = plt.subplots(nrows=2, ncols=3, figsize=(21, 9))
+    fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(21, 9))
     
     ##### First subplot: time vs x1 values #####
     ax[0, 0].plot(timepoints, x1, color=color1, linestyle='--')
-    ax[0, 0].plot(timepoints, x2, color=color2)
+    ax[0, 0].plot(timepoints, x2, color=color2, linestyle='--')
     
     # Set the title for the first subplot
     ax[0, 0].set_title('Time (t) vs x(t)')
@@ -89,7 +89,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     
     ##### Second subplot: time vs y1 values #####
     ax[0, 1].plot(timepoints, y1, color=color1, linestyle='--')
-    ax[0, 1].plot(timepoints, y2, color=color2)
+    ax[0, 1].plot(timepoints, y2, color=color2, linestyle='--')
     
     # Set the title for the second subplot
     ax[0, 1].set_title('Time (t) vs y(t)')
@@ -106,7 +106,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     
     ##### Third subplot: time vs z1 values #####
     ax[0, 2].plot(timepoints, z1, color=color1, linestyle='--')
-    ax[0, 2].plot(timepoints, z2, color=color2)
+    ax[0, 2].plot(timepoints, z2, color=color2, linestyle='--')
     
     # Set the title for the third subplot
     ax[0, 2].set_title('Time (t) vs z(t)')
@@ -123,7 +123,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     
     ##### Fourth subplot: x vs y #####
     ax[1, 0].plot(x1, y1, color=color1, linestyle='--')
-    ax[1, 0].plot(x2, y2, color=color2)
+    ax[1, 0].plot(x2, y2, color=color2, linestyle='--')
     
     # Set the title for the fourth subplot
     ax[1, 0].set_title('x(t) vs y(t)')
@@ -142,7 +142,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     
     ##### Fifth subplot: x vs z #####
     ax[1, 1].plot(x1, z1, color=color1, linestyle='--')
-    ax[1, 1].plot(x2, z2, color=color2)
+    ax[1, 1].plot(x2, z2, color=color2, linestyle='--')
     
     # Set the title for the fifth subplot
     ax[1, 1].set_title('x(t) vs z(t)')
@@ -161,7 +161,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     
     ##### Sixth subplot: y vs z #####
     ax[1, 2].plot(y1, z1, color=color1, linestyle='--')
-    ax[1, 2].plot(y2, z2, color=color2)
+    ax[1, 2].plot(y2, z2, color=color2, linestyle='--')
     
     # Set the title for the sixth subplot
     ax[1, 2].set_title('y(t) vs z(t)')
