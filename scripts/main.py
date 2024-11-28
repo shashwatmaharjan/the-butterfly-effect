@@ -391,6 +391,7 @@ def main():
                     'width': '100%',}),
         
         # Container for the plots
+        # Plot of time vs x, y, z
         html.Div([
             dcc.Graph(id='fig1',
                       figure=fig1,
@@ -400,7 +401,31 @@ def main():
             style={'width': '100%',
                    'background-color': dashboard_background_color,
                    'margin': '0 auto',}
-        )
+        ),
+        
+        # Plot of x, y, z against each other
+        html.Div([
+            dcc.Graph(id='fig2',
+                      figure=fig2,
+                      style={'width': '100%',
+                      })],
+            
+            style={'width': '100%',
+                   'background-color': dashboard_background_color,
+                   'margin': '0 auto',}
+        ),
+        
+        # Plot of x, y, z in 3D
+        html.Div([
+            dcc.Graph(id='fig3',
+                      figure=fig3,
+                      style={'width': '100%',
+                      })],
+            
+            style={'width': '100%',
+                   'background-color': dashboard_background_color,
+                   'margin': '0 auto',}
+        ),
         
         ], style={'background-color': dashboard_background_color,
                   'min-height': '100vh'})
