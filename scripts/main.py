@@ -45,9 +45,9 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
 def main():
     
     # Define constants 
-    sigma = 10
-    rho = 28
-    beta = 8/3
+    initial_sigma = 10
+    initial_rho = 28
+    initial_beta = 8/3
     
     # Timepoints
     t0 = 0
@@ -57,11 +57,11 @@ def main():
     
     # First initial state
     initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
-    solution_1 = solve_lorenz_ode(sigma, rho, beta, initial_state_1, t0, tf, dt) # x1, y1, z1
+    solution_1 = solve_lorenz_ode(initial_sigma, initial_rho, initial_beta, initial_state_1, t0, tf, dt) # x1, y1, z1
     
     # Second initial state
     initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
-    solution_2 = solve_lorenz_ode(sigma, rho, beta, initial_state_2, t0, tf, dt) # x2, y2, z2
+    solution_2 = solve_lorenz_ode(initial_sigma, initial_rho, initial_beta, initial_state_2, t0, tf, dt) # x2, y2, z2
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
@@ -131,7 +131,16 @@ def main():
                         style={'display': 'flex',
                                'justify-content': 'center',
                                'gap': '20px',
-                               'font-family': font_style['family']}), 
+                               'font-family': font_style['family']}),
+                
+                    html.H3(id='sigma-1',
+                            children='Sigma (σ)',
+                            style={'textAlign': 'center',
+                                   'font-family': font_style['family'],}),
+                    
+                    html.Div([html.Div([dcc.Slider(min=5, max=15, step=1,
+                                                   value=initial_sigma)]),
+                    ]) 
                 
                 ], style={'width': '50%',
                           'padding': '20px'}),
@@ -162,6 +171,15 @@ def main():
                                'gap': '20px',
                                'font-family': font_style['family']}), 
                 
+                    html.H3(id='sigma-2',
+                            children='Sigma (σ)',
+                            style={'textAlign': 'center',
+                                   'font-family': font_style['family'],}),
+                    
+                    html.Div([html.Div([dcc.Slider(min=5, max=15, step=1,
+                                                   value=initial_sigma)]),
+                    ]) 
+                
                 ], style={'width': '50%',
                           'padding': '20px'}),
             
@@ -171,9 +189,6 @@ def main():
         
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
-    
-    # Show plot
-    plt.show()
         
     return app
 
