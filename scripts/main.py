@@ -150,7 +150,7 @@ def main():
                                                    value=initial_rho)]),]),
                     
                     
-                    html.H3(id='beta-2',
+                    html.H3(id='beta-1',
                             children='Beta (β)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
