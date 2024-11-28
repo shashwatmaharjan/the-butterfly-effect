@@ -129,7 +129,7 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
 def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size):
     
     # Decreate the font size for the 3D plot
-    font_size = font_size - 2
+    font_size = font_size
     
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
@@ -153,7 +153,7 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
             y=1,
             xanchor="center",
             x=0.5,
-            font=dict(size=font_size+2))
+            font=dict(size=font_size))
     )
     
     return fig
@@ -199,10 +199,6 @@ def main():
     
     # Plot of x, y, z in 3D
     fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots)
-    
-    # fig1.show()
-    # fig2.show()
-    # fig3.show()
     
     # Define the default border radius
     border_radius = '2px'
