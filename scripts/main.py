@@ -8,6 +8,7 @@ from scipy.integrate import solve_ivp
 # For the web app
 import matplotlib.pyplot as plt
 from dash import Dash, dcc, html
+from dash.dependencies import Input, Output, State
 from plotly.tools import mpl_to_plotly
 import plotly.graph_objects as go
 
@@ -146,28 +147,25 @@ def main():
                                'gap': '20px',
                                'font-family': font_style['family']}),
                 
-                    html.H3(id='sigma-1',
-                            children='Sigma (σ)',
+                    html.H3(children='Sigma (σ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
+                    html.Div([html.Div([dcc.Slider(id='sigma-1', min=7, max=12, step=1,
                                                    value=default_sigma)]),
                 
-                    html.H3(id='rho-1',
-                            children='Rho (ρ)',
+                    html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
+                    html.Div([html.Div([dcc.Slider(id='rho-1', min=27, max=32, step=1,
                                                    value=default_rho)]),]),
                     
-                    html.H3(id='beta-1',
-                            children='Beta (β)',
+                    html.H3(children='Beta (β)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
+                    html.Div([html.Div([dcc.Slider(id='beta-1', min=2, max=2.5, step=0.1,
                                                    value=default_beta)]),])
                               
                     ]) 
@@ -201,28 +199,25 @@ def main():
                                'gap': '20px',
                                'font-family': font_style['family']}), 
                 
-                    html.H3(id='sigma-2',
-                            children='Sigma (σ)',
+                    html.H3(children='Sigma (σ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=7, max=12, step=1,
+                    html.Div([html.Div([dcc.Slider(id='sigma-2', min=7, max=12, step=1,
                                                    value=default_sigma)]),
                 
-                    html.H3(id='rho-2',
-                            children='Rho (ρ)',
+                    html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
+                    html.Div([html.Div([dcc.Slider(id='rho-2', min=27, max=32, step=1,
                                                    value=default_rho)]),]),
                     
-                    html.H3(id='beta-2',
-                            children='Beta (β)',
+                    html.H3(children='Beta (β)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],}),
                     
-                    html.Div([html.Div([dcc.Slider(min=2, max=2.5, step=0.1,
+                    html.Div([html.Div([dcc.Slider(id='beta-2',min=2, max=2.5, step=0.1,
                                                    value=default_beta)]),])
                     ]) 
                 
