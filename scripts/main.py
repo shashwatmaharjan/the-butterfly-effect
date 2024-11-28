@@ -230,6 +230,45 @@ def main():
         
         ], style={'background-color': '#f0f5f9',
                   'min-height': '100vh'})
+    
+    # Add callbacks to dynamically update the webpage values and plots
+    @app.callback(
+        [Output('x0_1', 'value'),
+         Output('y0_1', 'value'),
+         Output('z0_1', 'value'),
+         Output('x0_2', 'value'),
+         Output('y0_2', 'value'),
+         Output('z0_2', 'value'),
+         
+         Output('sigma-1', 'value'),
+         Output('rho-1', 'value'),
+         Output('beta-1', 'value'),
+         Output('sigma-2', 'value'),
+         Output('rho-2', 'value'),
+         Output('beta-2', 'value')],
+        
+        [Input('reset-button', 'n_clicks')],
+        
+        [State('x0_1', 'value'),
+         State('y0_1', 'value'),
+         State('z0_1', 'value'),
+         State('x0_2', 'value'),
+         State('y0_2', 'value'),
+         State('z0_2', 'value'),
+         State('sigma-1', 'value'),
+         State('rho-1', 'value'),
+         State('beta-1', 'value'),
+         State('sigma-2', 'value'),
+         State('rho-2', 'value'),
+         State('beta-2', 'value')])
+    
+    # Function to reset the values
+    def reset_values(n_clicks, x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2):
+        
+        if n_clicks > 0:
+            return default_initial_state_1[0], default_initial_state_1[1], default_initial_state_1[2], default_initial_state_2[0], default_initial_state_2[1], default_initial_state_2[2], default_sigma, default_rho, default_beta, default_sigma, default_rho, default_beta
+        
+        return x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2
         
     return app
 
