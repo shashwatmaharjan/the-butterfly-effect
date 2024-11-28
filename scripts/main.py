@@ -128,6 +128,9 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
 # Function to plot the Lorenz ODEs in 3D
 def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size):
     
+    # Decreate the font size for the 3D plot
+    font_size = font_size - 2
+    
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
                         specs=[[{'type': 'scatter3d'}],],)
