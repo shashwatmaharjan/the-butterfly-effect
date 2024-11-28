@@ -144,7 +144,15 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
         scene=dict(
             xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
             yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-            zaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),),
+            zaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+            
+            camera=dict(up=dict(x=0, y=0, z=1), # Keeps the z-axis pointing up
+                        center=dict(x=0, y=0, z=0), # Set rotation center
+                        eye=dict(x=4, y=1.5, z=1.5), # Set the initial viewing angle
+                        projection=dict(type='orthographic'), # Set the projection type
+                        ),
+            ),
+                        
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
@@ -153,7 +161,7 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
             y=1,
             xanchor="center",
             x=0.5,
-            font=dict(size=font_size))
+            font=dict(size=font_size)),
     )
     
     return fig
