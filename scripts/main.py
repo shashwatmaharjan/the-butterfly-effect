@@ -6,10 +6,9 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # For the web app
-import matplotlib.pyplot as plt
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output, State
-from plotly.tools import mpl_to_plotly
+from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
 # Function to define the Lorenz ODEs
@@ -275,13 +274,6 @@ def main():
 
 
 if __name__ == '__main__':
-    
-    # Set default font and math text font for the plots
-    plt.rcParams['font.family'] = 'serif'
-    plt.rcParams['mathtext.fontset'] = 'dejavuserif'
-
-    # Define font size for plots
-    plt.rcParams.update({'font.size': 15})
     
     # Call the main function
     app = main()
