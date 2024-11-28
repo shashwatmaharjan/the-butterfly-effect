@@ -42,7 +42,7 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     
 
 # Function to plot the Lorenz ODEs time vs x, y, z
-def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color):
+def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
@@ -71,13 +71,20 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
         yaxis3=dict(showgrid=False),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.2,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=font_size))
     )
     
     return fig
     
 
 # Function to plot the Lorenz ODEs x, y, z against each other
-def plot_xyz(solution_1, solution_2, color_1, color_2, background_color):
+def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_size):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
@@ -106,13 +113,20 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color):
         yaxis3=dict(showgrid=False),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.2,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=font_size))
     )
     
     return fig
     
 
 # Function to plot the Lorenz ODEs in 3D
-def plot_3d(solution_1, solution_2, color_1, color_2, background_color):
+def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size):
     
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
@@ -130,6 +144,13 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color):
             zaxis=dict(showgrid=False)),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.2,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=font_size))
     )
     
     return fig
@@ -162,22 +183,23 @@ def main():
     plot_color_1 = '#0000FF' # blue
     plot_color_2 = '#FFA500' # orange
     
+    # Define common styles for font
+    font_style = {'family': 'Courier New, Courier, monospace'}
+    font_size_inputs = '18px'
+    font_size_plots = 15
+    
     # Plot of time vs x, y, z
-    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color)
+    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots)
     
     # Plot of x, y, z against each other
-    fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color)
+    fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots)
     
     # Plot of x, y, z in 3D
-    fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color)
+    fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots)
     
     # fig1.show()
     # fig2.show()
     # fig3.show()
-    
-    # Define common styles for font
-    font_style = {'family': 'Courier New, Courier, monospace'}
-    font_size_inputs = '18px'
     
     # Define the default border radius
     border_radius = '2px'
