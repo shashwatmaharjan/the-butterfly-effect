@@ -124,6 +124,19 @@ def main():
     default_initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
     solution_2 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_2, t0, tf, dt) # x2, y2, z2
     
+    # Define colors for the plots
+    color_1 = 'teal'
+    color_2 = 'orange'
+    
+    # Plot of time vs x, y, z
+    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2)
+    
+    # Plot of x, y, z against each other
+    fig2 = plot_xyz(solution_1, solution_2, color_1, color_2)
+    
+    # Plot of x, y, z in 3D
+    fig3 = plot_3d(solution_1, solution_2, color_1, color_2)
+    
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
     
@@ -325,19 +338,6 @@ def main():
             return default_initial_state_1[0], default_initial_state_1[1], default_initial_state_1[2], default_initial_state_2[0], default_initial_state_2[1], default_initial_state_2[2], default_sigma, default_rho, default_beta, default_sigma, default_rho, default_beta
         
         return x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2
-    
-    # Define colors for the plots
-    color_1 = 'teal'
-    color_2 = 'orange'
-    
-    # Plot of time vs x, y, z
-    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2)
-    
-    # Plot of x, y, z against each other
-    fig2 = plot_xyz(solution_1, solution_2, color_1, color_2)
-    
-    # Plot of x, y, z in 3D
-    fig3 = plot_3d(solution_1, solution_2, color_1, color_2)
     
     return app
 
