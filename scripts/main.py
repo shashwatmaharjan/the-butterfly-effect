@@ -41,16 +41,13 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     return x, y, z
     
 
-# Function to plot the Lorenz attractor
-def plot_lorenz_attractor(solution_1, solution_2, timepoints):
+# Function to plot the Lorenz ODEs time vs x, y, z
+def plot_time_versus_xyz(solution_1, solution_2, timepoints):
     
-        
     # Make subplots
-    fig = make_subplots(rows=3, cols=3,
-                        specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],
-                               [{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],
-                               [{'colspan': 3, 'type': 'scatter3d'}, None, None]],
-                        subplot_titles=('time (t) vs x(t)', 'time (t) vs y(t)', 'time (t) vs z(t)', 'x(t) vs y(t)', 'y(t) vs z(t)', 'z(t) vs x(t)', 'x(t) vs y(t) vs z(t)'))
+    fig = make_subplots(rows=1, cols=3,
+                        specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
+                        subplot_titles=('time (t) vs x(t)', 'time (t) vs y(t)', 'time (t) vs z(t)'))
     
     # Plot time vs x(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[0], mode='lines'), row=1, col=1)
@@ -63,22 +60,6 @@ def plot_lorenz_attractor(solution_1, solution_2, timepoints):
     # Plot time vs z(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[2], mode='lines'), row=1, col=3)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_2[1], mode='lines'), row=1, col=3)
-    
-    # Plot x(t) vs y(t)
-    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[1], mode='lines'), row=2, col=1)
-    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[1], mode='lines'), row=2, col=1)
-    
-    # Plot y(t) vs z(t)
-    fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines'), row=2, col=2)
-    fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines'), row=2, col=2)
-    
-    # Plot z(t) vs x(t)
-    fig.add_trace(go.Scatter(x=solution_1[2], y=solution_1[0], mode='lines'), row=2, col=3)
-    fig.add_trace(go.Scatter(x=solution_2[2], y=solution_2[0], mode='lines'), row=2, col=3)
-    
-    # Plot x(t) vs y(t) vs z(t)
-    fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines'), row=3, col=1)
-    fig.add_trace(go.Scatter3d(x=solution_2[0], y=solution_2[1], z=solution_2[2], mode='lines'), row=3, col=1)
     
     return fig
     
@@ -312,9 +293,8 @@ def main():
         
         return x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2
     
-    # Show the plot
-    fig = plot_lorenz_attractor(solution_1, solution_2, timepoints)
-    fig.show()
+    # Plot of time vs x, y, z
+    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints)
             
     return app
 
