@@ -68,7 +68,7 @@ def make_subplots(x1, y1, z1, x2, y2, z2, timepoints, color1 = 'blue', color2 = 
     z_value_ticks = np.linspace(smallest_z_value, largest_z_value, ordinate_num_ticks).astype(int)
     
     # Figure
-    fig, ax = plt.subplots(nrows=3, ncols=3, figsize=(21, 9))
+    fig, ax = plt.subplots(nrows=2, ncols=3, figsize=(21, 9))
     
     ##### First subplot: time vs x1 values #####
     ax[0, 0].plot(timepoints, x1, color=color1, linestyle='--')
