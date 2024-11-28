@@ -124,7 +124,7 @@ def main():
             # Initial condition 1
             html.Div([
                 html.H3(id='ic-1',
-                        children='Initial Condition 1',
+                        children='Initial Position 1',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],}),
                         
@@ -162,7 +162,6 @@ def main():
                     html.Div([html.Div([dcc.Slider(min=27, max=32, step=1,
                                                    value=initial_rho)]),]),
                     
-                    
                     html.H3(id='beta-1',
                             children='Beta (β)',
                             style={'textAlign': 'center',
@@ -180,7 +179,7 @@ def main():
             # Initial condition 2
             html.Div([
                 html.H3(id='ic-2',
-                        children='Initial Condition 2',
+                        children='Initial Position 2',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],}),
                         
