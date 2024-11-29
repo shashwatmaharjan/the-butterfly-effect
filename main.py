@@ -647,15 +647,12 @@ def main():
         return fig1, fig2, fig3
                 
     return app
+    
+# Call the main function
+app = main()
 
+# Run the app server
+app.run_server(debug=True)
 
-if __name__ == '__main__':
-    
-    # Call the main function
-    app = main()
-    
-    # Run the app server
-    app.run_server(debug=True)
-    
-    # Clear the console regardless of the OS
-    os.system('cls' if os.name == 'nt' else 'clear')
+# Clear the console regardless of the OS
+os.system('cls' if os.name == 'nt' else 'clear')
