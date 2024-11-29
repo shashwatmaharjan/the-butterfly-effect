@@ -543,7 +543,7 @@ def main():
     def reset_values(n_clicks, x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2):
         
         if n_clicks > 0:
-            return default_initial_state_1[0], default_initial_state_1[1], default_initial_state_1[2], default_initial_state_2[0], default_initial_state_2[1], default_initial_state_2[2], default_sigma, default_rho, default_beta, default_sigma, default_rho, default_beta
+            return default_initial_state_1[0], default_initial_state_1[1], default_initial_state_1[2], default_initial_state_2[0], default_initial_state_2[1], default_initial_state_2[2], default_sigma_1, default_rho_1, default_beta_1, default_sigma_2, default_rho_2, default_beta_2
         
         return x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2
     
