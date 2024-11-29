@@ -338,7 +338,7 @@ def main():
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-1', min=7, max=12, step=1,
                                                    value=default_sigma_1,
-                                                   marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 12)})]),
+                                                   marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 13)})]),
                 
                     html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
@@ -400,7 +400,7 @@ def main():
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-2', min=7, max=12, step=1,
                                                    value=default_sigma_2,
-                                                   marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 12)})]),
+                                                   marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 13)})]),
                 
                     html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
