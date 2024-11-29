@@ -44,6 +44,11 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
 # Function to plot the Lorenz ODEs time vs x, y, z
 def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size, font_style):
     
+    # Get the lowest and highest values for the timepoints
+    t_min = timepoints.min()
+    t_max = timepoints.max()
+    t_ticks = np.arange(t_min, t_max, 5)
+    
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
                         specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
@@ -63,11 +68,11 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
         
     # Update layout to remove grid
     fig.update_layout(
-        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
         yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
         yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
         yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
@@ -180,7 +185,7 @@ def main():
     
     # Timepoints
     t0 = 0
-    tf = 50
+    tf = 51
     dt = 0.01
     timepoints = np.arange(t0, tf, dt)
     
