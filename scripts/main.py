@@ -192,9 +192,9 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     # Update layout to remove grid
     fig.update_layout(
         scene=dict(
-            xaxis=dict(showgrid=False, title='x(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
-            yaxis=dict(showgrid=False, title='y(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=y_value_ticks, range=[y_value_min, y_value_max]),
-            zaxis=dict(showgrid=False, title='z(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=z_value_ticks, range=[z_value_min, z_value_max]),
+            xaxis=dict(showgrid=False, showbackground=False, title='x(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
+            yaxis=dict(showgrid=False, showbackground=False, title='y(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=y_value_ticks, range=[y_value_min, y_value_max]),
+            zaxis=dict(showgrid=False, showbackground=False, title='z(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size-2), tickvals=z_value_ticks, range=[z_value_min, z_value_max]),
             
             camera=dict(up=dict(x=0, y=0, z=1), # Keeps the z-axis pointing up
                         center=dict(x=0, y=0, z=0), # Set rotation center
@@ -208,7 +208,7 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1,
+            y=0.85,
             xanchor="center",
             x=0.5,
             font=dict(size=font_size)),
