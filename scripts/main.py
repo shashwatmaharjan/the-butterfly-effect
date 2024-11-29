@@ -43,7 +43,7 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     
 
 # Function to plot the Lorenz ODEs time vs x, y, z
-def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size, font_style):
+def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size, font_style, points_per_frame=20):
     
     # Get the lowest and highest values for the timepoints
     t_min = timepoints.min()
@@ -57,7 +57,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
-                        specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
+                        specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}]],
                         subplot_titles=('time (t) vs x(t)', 'time (t) vs y(t)', 'time (t) vs z(t)'))
     
     # Plot time vs x(t)
@@ -71,15 +71,26 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     # Plot time vs z(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[2], mode='lines', line=dict(color=color_1), name='time (t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=3)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_2[2], mode='lines', line=dict(color=color_2), name='time (t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=3)
+    
+    # Create frames
+    frames = []
+    for n_frame in range(1, len(timepoints), points_per_frame):
+        frame = go.Frame(data=[go.Scatter(x=timepoints[:n_frame+1], y=solution_1[0][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=timepoints[:n_frame+1], y=solution_2[0][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=timepoints[:n_frame+1], y=solution_1[1][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=timepoints[:n_frame+1], y=solution_2[1][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=timepoints[:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=timepoints[:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2))])
+        frames.append(frame)
         
-    # Update layout to remove grid
+    # Update layout to remove grid and add animation controls
     fig.update_layout(
         xaxis=dict(showgrid=False, title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
         yaxis=dict(showgrid=False, title='x(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         xaxis2=dict(showgrid=False, title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
         yaxis2=dict(showgrid=False, title='y(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
-        xaxis3=dict(showgrid=False,title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis3=dict(showgrid=False,title='z(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
+        xaxis3=dict(showgrid=False, title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
+        yaxis3=dict(showgrid=False, title='z(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
@@ -89,8 +100,13 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
             xanchor="center",
             x=0.5,
             font=dict(size=font_size)),
-        font=font_style
+        font=font_style,
+        updatemenus=[dict(type='buttons', buttons=[dict(label='Animate',
+                                                         method='animate',
+                                                         args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
+    
+    fig.frames = frames
     
     return fig
     
