@@ -100,20 +100,20 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
                         specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
-                        subplot_titles=('x(t) vs y(t)', 'y(t) vs z(t)', 'z(t) vs x(t)'))
+                        subplot_titles=('x(t) vs y(t)', 'x(t) vs z(t)', 'y(t) vs z(t)'))
     
     # Plot x(t) vs y(t)
     fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[1], mode='lines', line=dict(color=color_1), name='Behavior 1'), row=1, col=1)
     fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[1], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
     
+    # Plot x(t) vs z(t)
+    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=3)
+    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
+    
     # Plot y(t) vs z(t)
     fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=2)
     fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=2)
     
-    # Plot z(t) vs x(t)
-    fig.add_trace(go.Scatter(x=solution_1[2], y=solution_1[0], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=3)
-    fig.add_trace(go.Scatter(x=solution_2[2], y=solution_2[0], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
-        
     # Update layout to remove grid
     fig.update_layout(
         xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
