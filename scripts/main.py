@@ -61,7 +61,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     
     # Plot time vs x(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[0], mode='lines', line=dict(color=color_1), name='Behavior 1'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[1], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[0], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
     
     # Plot time vs y(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[1], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=2)
@@ -69,7 +69,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     
     # Plot time vs z(t)
     fig.add_trace(go.Scatter(x=timepoints, y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=3)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[1], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
         
     # Update layout to remove grid
     fig.update_layout(
