@@ -191,7 +191,7 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
     
 
 # Function to plot the Lorenz ODEs in 3D
-def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style, points_per_frame=15):
+def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style, points_per_frame=10):
     
     # Specify spacing for the ticks
     tick_spacing = 7
@@ -224,12 +224,8 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     frames = []
     for n_frame in range(1, len(solution_1[0]), points_per_frame):
         
-        frame = go.Frame(data=[go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[1][:n_frame+1], mode='lines', line=dict(color=color_1)),
-                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[1][:n_frame+1], mode='lines', line=dict(color=color_2)),
-                               go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
-                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2)),
-                               go.Scatter(x=solution_1[1][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
-                               go.Scatter(x=solution_2[1][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2))])
+        frame = go.Frame(data=[go.Scatter3d(x=solution_1[0][:n_frame+1], y=solution_1[1][:n_frame+1], z=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter3d(x=solution_2[0][:n_frame+1], y=solution_2[1][:n_frame+1], z=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2))])
         frames.append(frame)
     
     # Update layout to remove grid
