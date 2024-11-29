@@ -235,7 +235,7 @@ def main():
     # Define constants 
     default_sigma_1 = 10
     default_rho_1 = 28
-    default_beta_1 = 2.3
+    default_beta_1 = 2
     
     # Solve the ODEs
     solution_1 = solve_lorenz_ode(default_sigma_1, default_rho_1, default_beta_1, default_initial_state_1, t0, tf, dt) # x1, y1, z1
@@ -249,7 +249,7 @@ def main():
     # Define constants 
     default_sigma_2 = 10
     default_rho_2 = 28
-    default_beta_2 = 2.3
+    default_beta_2 = 2.5
     
     # Solve the ODEs
     solution_2 = solve_lorenz_ode(default_sigma_2, default_rho_2, default_beta_2, default_initial_state_2, t0, tf, dt) # x2, y2, z2
