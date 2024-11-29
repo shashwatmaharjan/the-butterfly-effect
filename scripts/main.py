@@ -49,6 +49,11 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     t_max = timepoints.max()
     t_ticks = np.arange(t_min, t_max, 5)
     
+    # Make the same y-axis regardless of the plot
+    ordinate_min = min(solution_1.min(), solution_2.min())
+    ordinate_max = max(solution_1.max(), solution_2.max())
+    ordinate_ticks = np.arange(ordinate_min, ordinate_max+1, 5).astype(int)
+    
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
                         specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
@@ -69,11 +74,11 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     # Update layout to remove grid
     fig.update_layout(
         xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
