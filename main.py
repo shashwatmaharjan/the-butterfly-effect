@@ -325,6 +325,7 @@ def main():
     
     # Create the Dash app
     app = Dash(__name__)
+    server = app.server
     
     app.layout = html.Div([
         
