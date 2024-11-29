@@ -223,11 +223,6 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
 # Main function
 def main():
     
-    # Define constants 
-    default_sigma = 10
-    default_rho = 28
-    default_beta = 2.3
-    
     # Timepoints
     t0 = 0
     tf = 26
@@ -236,14 +231,28 @@ def main():
     
     # First initial state
     default_initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
-    solution_1 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_1, t0, tf, dt) # x1, y1, z1
+    
+    # Define constants 
+    default_sigma_1 = 10
+    default_rho_1 = 28
+    default_beta_1 = 2.3
+    
+    # Solve the ODEs
+    solution_1 = solve_lorenz_ode(default_sigma_1, default_rho_1, default_beta_1, default_initial_state_1, t0, tf, dt) # x1, y1, z1
     
     # Convert the solution to a numpy array
     solution_1 = np.array(solution_1)
     
     # Second initial state
     default_initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
-    solution_2 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_2, t0, tf, dt) # x2, y2, z2
+    
+    # Define constants 
+    default_sigma_2 = 10
+    default_rho_2 = 28
+    default_beta_2 = 2.3
+    
+    # Solve the ODEs
+    solution_2 = solve_lorenz_ode(default_sigma_2, default_rho_2, default_beta_2, default_initial_state_2, t0, tf, dt) # x2, y2, z2
     
     # Convert the solution to a numpy array
     solution_2 = np.array(solution_2)
@@ -365,7 +374,7 @@ def main():
                                     'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-1', min=7, max=12, step=1,
-                                                   value=default_sigma,
+                                                   value=default_sigma_1,
                                                    marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 12)})]),
                 
                     html.H3(children='Rho (ρ)',
@@ -374,7 +383,7 @@ def main():
                                    'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='rho-1', min=27, max=32, step=1,
-                                                   value=default_rho,
+                                                   value=default_rho_1,
                                                    marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(27, 33)}),]),]),
                     
                     html.H3(children='Beta (β)',
@@ -383,7 +392,7 @@ def main():
                                    'color': plot_color_1}),
                     
                     html.Div([html.Div([dcc.Slider(id='beta-1', min=2, max=2.5, step=0.1,
-                                                   value=default_beta,
+                                                   value=default_beta_1,
                                                    marks={tick: {'label': str(tick), 'style': {'font-size': font_size_inputs}} for tick in [2, 2.1, 2.2, 2.3, 2.4, 2.5]})]),])
                               
                     ]) 
@@ -427,7 +436,7 @@ def main():
                                    'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-2', min=7, max=12, step=1,
-                                                   value=default_sigma,
+                                                   value=default_sigma_2,
                                                    marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(7, 12)})]),
                 
                     html.H3(children='Rho (ρ)',
@@ -436,7 +445,7 @@ def main():
                                    'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='rho-2', min=27, max=32, step=1,
-                                                   value=default_rho,
+                                                   value=default_rho_2,
                                                    marks={tick: {'label': str(tick), 'style': {'font-size': '16px'}} for tick in range(27, 33)})]),]),
                     
                     html.H3(children='Beta (β)',
@@ -445,7 +454,7 @@ def main():
                                    'color': plot_color_2}),
                     
                     html.Div([html.Div([dcc.Slider(id='beta-2',min=2, max=2.5, step=0.1,
-                                                   value=default_beta,
+                                                   value=default_beta_2,
                                                    marks={n_tick: {'label': str(n_tick), 'style': {'font-size': font_size_inputs}} for n_tick in [2, 2.1, 2.2, 2.3, 2.4, 2.5]})]),])
                     ]) 
                 
