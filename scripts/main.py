@@ -475,6 +475,22 @@ def main():
                    'margin': '0 auto',}
         ),
         
+        # Create a container for the animate button
+        html.Div([html.Button(id='fig1-animate-button', children='Animate', n_clicks = 0, style={'display': 'block',
+                                                                                        'background-color': '#964B00',
+                                                                                        'color': 'white',
+                                                                                        'border': 'none',
+                                                                                        'border-radius': border_radius,
+                                                                                        'cursor': 'pointer',
+                                                                                        'text-align': 'center',
+                                                                                        'padding': '5px 10px',
+                                                                                        'font-family': font_style['family'],
+                                                                                        'font-size': '25px',
+                                                                                        'margin-left': '10px'},),],
+                 style={'display': 'flex',
+                        'justify-content':'center',
+                        'padding': '5px'}),
+        
         # Plot of x, y, z against each other
         html.Div([
             dcc.Graph(id='fig2',
@@ -488,6 +504,22 @@ def main():
                    'background-color': dashboard_background_color,
                    'margin': '0 auto',}
         ),
+        
+        # Create a container for the animate button
+        html.Div([html.Button(id='fig2-animate-button', children='Animate', n_clicks = 0, style={'display': 'block',
+                                                                                        'background-color': '#964B00',
+                                                                                        'color': 'white',
+                                                                                        'border': 'none',
+                                                                                        'border-radius': border_radius,
+                                                                                        'cursor': 'pointer',
+                                                                                        'text-align': 'center',
+                                                                                        'padding': '5px 10px',
+                                                                                        'font-family': font_style['family'],
+                                                                                        'font-size': '25px',
+                                                                                        'margin-left': '10px'},),],
+                 style={'display': 'flex',
+                        'justify-content':'center',
+                        'padding': '5px'}),
         
         # Plot of x, y, z in 3D
         html.Div([
@@ -503,6 +535,22 @@ def main():
                    'background-color': dashboard_background_color,
                    'margin': '0 auto',}
         ),
+        
+        # Create a container for the animate button
+        html.Div([html.Button(id='fig3-animate-button', children='Animate', n_clicks = 0, style={'display': 'block',
+                                                                                        'background-color': '#964B00',
+                                                                                        'color': 'white',
+                                                                                        'border': 'none',
+                                                                                        'border-radius': border_radius,
+                                                                                        'cursor': 'pointer',
+                                                                                        'text-align': 'center',
+                                                                                        'padding': '5px 10px',
+                                                                                        'font-family': font_style['family'],
+                                                                                        'font-size': '25px',
+                                                                                        'margin-left': '10px'},),],
+                 style={'display': 'flex',
+                        'justify-content':'center',
+                        'padding': '5px'}),
         
         ], style={'background-color': dashboard_background_color,
                   'min-height': '100vh'})
