@@ -52,7 +52,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     # Make the same y-axis regardless of the plot
     ordinate_min = min(solution_1.min(), solution_2.min())
     ordinate_max = max(solution_1.max(), solution_2.max())
-    ordinate_ticks = np.arange(ordinate_min, ordinate_max+1, 5).astype(int)
+    ordinate_ticks = np.arange(ordinate_min, ordinate_max+1, 6).astype(int)
     
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
