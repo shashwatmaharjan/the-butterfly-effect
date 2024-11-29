@@ -40,10 +40,10 @@ def solve_lorenz_ode(sigma, rho, beta, initial_state, t0, tf, dt):
     x, y, z = solution.y
     
     return x, y, z
-    
+
 
 # Function to plot the Lorenz ODEs time vs x, y, z
-def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size, font_style, points_per_frame=20):
+def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, background_color, font_size, font_style, points_per_frame=40):
     
     # Get the lowest and highest values for the timepoints
     t_min = timepoints.min()
@@ -112,7 +112,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
     
 
 # Function to plot the Lorenz ODEs x, y, z against each other
-def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style):
+def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style, points_per_frame=15):
     
     # Specify spacing for the ticks
     tick_spacing = 5
@@ -150,6 +150,18 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
     fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='y(t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=3)
     fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='y(t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=3)
     
+    # Create frames
+    frames = []
+    for n_frame in range(1, len(solution_1[0]), points_per_frame):
+        
+        frame = go.Frame(data=[go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[1][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[1][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=solution_1[1][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[1][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2))])
+        frames.append(frame)
+    
     # Update layout to remove grid
     fig.update_layout(
         xaxis=dict(showgrid=False, title='x(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
@@ -167,8 +179,13 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
             xanchor="center",
             x=0.5,
             font=dict(size=font_size)),
-        font=font_style
+        font=font_style,
+        updatemenus=[dict(type='buttons', buttons=[dict(label='Animate',
+                                                         method='animate',
+                                                         args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
+    
+    fig.frames = frames
     
     return fig
     
@@ -242,7 +259,7 @@ def main():
     
     # Timepoints
     t0 = 0
-    tf = 26
+    tf = 21
     dt = 0.01
     timepoints = np.arange(t0, tf, dt)
     
