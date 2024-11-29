@@ -61,16 +61,16 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
                         subplot_titles=('time (t) vs x(t)', 'time (t) vs y(t)', 'time (t) vs z(t)'))
     
     # Plot time vs x(t)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[0], mode='lines', line=dict(color=color_1), name='time (t) vs x(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[0], mode='lines', line=dict(color=color_2), name='time (t) vs x(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[0], mode='lines', line=dict(color=color_1), name='time (t) vs x(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[0], mode='lines', line=dict(color=color_2), name='time (t) vs x(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=1)
     
     # Plot time vs y(t)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[1], mode='lines', line=dict(color=color_1), name='time (t) vs y(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=2)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[1], mode='lines', line=dict(color=color_2), name='time (t) vs y(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=2)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[1], mode='lines', line=dict(color=color_1), name='time (t) vs y(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=2)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[1], mode='lines', line=dict(color=color_2), name='time (t) vs y(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=2)
     
     # Plot time vs z(t)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[2], mode='lines', line=dict(color=color_1), name='time (t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=3)
-    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[2], mode='lines', line=dict(color=color_2), name='time (t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=3)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_1[2], mode='lines', line=dict(color=color_1), name='time (t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=3)
+    fig.add_trace(go.Scatter(x=timepoints, y=solution_2[2], mode='lines', line=dict(color=color_2), name='time (t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=3)
     
     # Create frames
     frames = []
@@ -139,16 +139,16 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
                         subplot_titles=('x(t) vs y(t)', 'x(t) vs z(t)', 'y(t) vs z(t)'))
     
     # Plot x(t) vs y(t)
-    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[1], mode='lines', line=dict(color=color_1), name='x(t) vs y(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[1], mode='lines', line=dict(color=color_2), name='x(t) vs y(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[1], mode='lines', line=dict(color=color_1), name='x(t) vs y(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=1)
+    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[1], mode='lines', line=dict(color=color_2), name='x(t) vs y(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=1)
     
     # Plot x(t) vs z(t)
-    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[2], mode='lines', line=dict(color=color_1), name='x(t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=2)
-    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[2], mode='lines', line=dict(color=color_2), name='x(t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=2)
+    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[2], mode='lines', line=dict(color=color_1), name='x(t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=2)
+    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[2], mode='lines', line=dict(color=color_2), name='x(t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=2)
     
     # Plot y(t) vs z(t)
-    fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='y(t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Behavior 1'), row=1, col=3)
-    fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='y(t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Behavior 2'), row=1, col=3)
+    fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='y(t) vs z(t)', legendgroup='group_1', legendgrouptitle_text='Chaotic Path A'), row=1, col=3)
+    fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='y(t) vs z(t)', legendgroup='group_2', legendgrouptitle_text='Chaotic Path B'), row=1, col=3)
     
     # Create frames
     frames = []
@@ -217,8 +217,8 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
                         specs=[[{'type': 'scatter3d'}],],)
     
     # Plot x(t) vs y(t) vs z(t)
-    fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1'), row=1, col=1)
-    fig.add_trace(go.Scatter3d(x=solution_2[0], y=solution_2[1], z=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
+    fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines', line=dict(color=color_1), name='Chaotic Path A'), row=1, col=1)
+    fig.add_trace(go.Scatter3d(x=solution_2[0], y=solution_2[1], z=solution_2[2], mode='lines', line=dict(color=color_2), name='Chaotic Path B'), row=1, col=1)
     
     # Create frames
     frames = []
