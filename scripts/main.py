@@ -228,7 +228,7 @@ def main():
     
     # Timepoints
     t0 = 0
-    tf = 51
+    tf = 26
     dt = 0.01
     timepoints = np.arange(t0, tf, dt)
     
