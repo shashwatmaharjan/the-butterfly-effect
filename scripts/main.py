@@ -347,8 +347,13 @@ def main():
             # Left column
             # Initial condition 1
             html.Div([
+                html.H2(id='chaotic-path-a',
+                        children='Chaotic Path A',
+                        style={'textAlign': 'center',
+                               'font-family': font_style['family'],
+                                'color': plot_color_1}),
                 html.H3(id='ic-1',
-                        children='Initial Position 1',
+                        children='Initial Position',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
                                 'color': plot_color_1}),
@@ -409,8 +414,14 @@ def main():
             # Right column
             # Initial condition 2
             html.Div([
+                html.H2(id='chaotic-path-b',
+                        children='Chaotic Path B',
+                        style={'textAlign': 'center',
+                               'font-family': font_style['family'],
+                                'color': plot_color_2}),
+                
                 html.H3(id='ic-2',
-                        children='Initial Position 2',
+                        children='Initial Position',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
                                'color': plot_color_2}),
