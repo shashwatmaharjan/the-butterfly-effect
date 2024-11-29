@@ -97,6 +97,25 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
 # Function to plot the Lorenz ODEs x, y, z against each other
 def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style):
     
+    # Specify spacing for the ticks
+    tick_spacing = 5
+    
+    # Make uniform axis for all plots
+    # x-axis
+    x_value_min = min(solution_1[0].min(), solution_2[0].min()) - 2
+    x_value_max = max(solution_1[0].max(), solution_2[0].max()) + 2
+    x_value_ticks = np.arange(x_value_min, x_value_max, tick_spacing).astype(int)
+    
+    # y-axis
+    y_value_min = min(solution_1[1].min(), solution_2[1].min()) - 2
+    y_value_max = max(solution_1[1].max(), solution_2[1].max()) + 2
+    y_value_ticks = np.arange(y_value_min, y_value_max, tick_spacing).astype(int)
+    
+    # z-axis
+    z_value_min = min(solution_1[2].min(), solution_2[2].min()) - 2
+    z_value_max = max(solution_1[2].max(), solution_2[2].max()) + 2
+    z_value_ticks = np.arange(z_value_min, z_value_max, tick_spacing).astype(int)
+    
     # Make subplots
     fig = make_subplots(rows=1, cols=3,
                         specs=[[{'type': 'xy'}, {'type': 'xy'}, {'type': 'xy'}],],
@@ -107,21 +126,21 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
     fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[1], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
     
     # Plot x(t) vs z(t)
-    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=3)
-    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
+    fig.add_trace(go.Scatter(x=solution_1[0], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=2)
+    fig.add_trace(go.Scatter(x=solution_2[0], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=2)
     
     # Plot y(t) vs z(t)
-    fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=2)
-    fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=2)
+    fig.add_trace(go.Scatter(x=solution_1[1], y=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1', showlegend=False), row=1, col=3)
+    fig.add_trace(go.Scatter(x=solution_2[1], y=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2', showlegend=False), row=1, col=3)
     
     # Update layout to remove grid
     fig.update_layout(
-        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
+        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=y_value_ticks, range=[y_value_min, y_value_max]),
+        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
+        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=z_value_ticks, range=[z_value_min, z_value_max]),
+        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=y_value_ticks, range=[y_value_min, y_value_max]),
+        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=z_value_ticks, range=[z_value_min, z_value_max]),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
