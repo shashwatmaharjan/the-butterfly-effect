@@ -191,7 +191,7 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
     
 
 # Function to plot the Lorenz ODEs in 3D
-def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style):
+def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style, points_per_frame=15):
     
     # Specify spacing for the ticks
     tick_spacing = 7
@@ -212,9 +212,6 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     z_value_max = max(solution_1[2].max(), solution_2[2].max()) + 2
     z_value_ticks = np.arange(z_value_min, z_value_max, tick_spacing).astype(int)
     
-    # Decreate the font size for the 3D plot
-    font_size = font_size
-    
     # Make subplots
     fig = make_subplots(rows=1, cols=1,
                         specs=[[{'type': 'scatter3d'}],],)
@@ -222,6 +219,18 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     # Plot x(t) vs y(t) vs z(t)
     fig.add_trace(go.Scatter3d(x=solution_1[0], y=solution_1[1], z=solution_1[2], mode='lines', line=dict(color=color_1), name='Behavior 1'), row=1, col=1)
     fig.add_trace(go.Scatter3d(x=solution_2[0], y=solution_2[1], z=solution_2[2], mode='lines', line=dict(color=color_2), name='Behavior 2'), row=1, col=1)
+    
+    # Create frames
+    frames = []
+    for n_frame in range(1, len(solution_1[0]), points_per_frame):
+        
+        frame = go.Frame(data=[go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[1][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[1][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=solution_1[0][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[0][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2)),
+                               go.Scatter(x=solution_1[1][:n_frame+1], y=solution_1[2][:n_frame+1], mode='lines', line=dict(color=color_1)),
+                               go.Scatter(x=solution_2[1][:n_frame+1], y=solution_2[2][:n_frame+1], mode='lines', line=dict(color=color_2))])
+        frames.append(frame)
     
     # Update layout to remove grid
     fig.update_layout(
@@ -248,8 +257,13 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
             font=dict(size=font_size),),
         font=font_style,
         margin=dict(l=0, r=0, t=0, b=0),  # Adjust margins
-        scene_aspectmode='cube',  # Make the plot aspect uniform
+        scene_aspectmode='cube',  # Make the plot aspect uniform,
+        updatemenus=[dict(type='buttons', buttons=[dict(label='Animate',
+                                                         method='animate',
+                                                         args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
+        
+    fig.frames = frames
     
     return fig
 
