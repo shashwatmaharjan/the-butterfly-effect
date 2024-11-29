@@ -193,9 +193,15 @@ def main():
     default_initial_state_1 = [0, 1, 0] # x0_1, y0_1, z0_1
     solution_1 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_1, t0, tf, dt) # x1, y1, z1
     
+    # Convert the solution to a numpy array
+    solution_1 = np.array(solution_1)
+    
     # Second initial state
     default_initial_state_2 = [1, 0, 1] # x0_2, y0_2, z0_2
     solution_2 = solve_lorenz_ode(default_sigma, default_rho, default_beta, default_initial_state_2, t0, tf, dt) # x2, y2, z2
+    
+    # Convert the solution to a numpy array
+    solution_2 = np.array(solution_2)
     
     # Define colors
     dashboard_background_color = '#f0f5f9'
