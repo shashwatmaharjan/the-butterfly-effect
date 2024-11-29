@@ -294,6 +294,9 @@ def main():
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center',
                        'font-family': font_style['family'],}),
+        
+        # Horizontal line
+        html.Hr(),
                     
         # Container for the two columns for the initial conditions
         html.Div([
@@ -453,6 +456,9 @@ def main():
                  style={'display': 'flex',
                         'justify-content':'center',
                         'padding': '5px'}),
+        
+        # Horizontal line
+        html.Hr(),
         
         # Container for the plots
         # Plot of time vs x, y, z
