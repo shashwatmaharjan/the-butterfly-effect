@@ -547,6 +547,49 @@ def main():
         
         return x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2
     
+    # Add callbacks to update the plots when 'Generate' button is clicked
+    @app.callback(
+        [Output('fig1', 'figure'),
+         Output('fig2', 'figure'),
+         Output('fig3', 'figure')],
+        
+        [Input('visualize-button', 'n_clicks')],
+        
+        [State('x0_1', 'value'),
+         State('y0_1', 'value'),
+         State('z0_1', 'value'),
+         State('x0_2', 'value'),
+         State('y0_2', 'value'),
+         State('z0_2', 'value'),
+         
+         State('sigma-1', 'value'),
+         State('rho-1', 'value'),
+         State('beta-1', 'value'),
+         State('sigma-2', 'value'),
+         State('rho-2', 'value'),
+         State('beta-2', 'value')])
+    
+    def update_plots(n_clicks, x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2):
+        
+        # Solve the ODEs
+        solution_1 = solve_lorenz_ode(sigma_1, rho_1, beta_1, [x0_1, y0_1, z0_1], t0, tf, dt)
+        solution_2 = solve_lorenz_ode(sigma_2, rho_2, beta_2, [x0_2, y0_2, z0_2], t0, tf, dt)
+        
+        # Convert the solution to a numpy array
+        solution_1 = np.array(solution_1)
+        solution_2 = np.array(solution_2)
+        
+        # Plot of time vs x, y, z
+        fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        
+        # Plot of x, y, z against each other
+        fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        
+        # Plot of x, y, z in 3D
+        fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        
+        return fig1, fig2, fig3
+    
     return app
 
 
