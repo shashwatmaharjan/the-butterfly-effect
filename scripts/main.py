@@ -211,8 +211,10 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
             y=0.85,
             xanchor="center",
             x=0.5,
-            font=dict(size=font_size)),
-        font=font_style
+            font=dict(size=font_size),),
+        font=font_style,
+        margin=dict(l=0, r=0, t=0, b=0),  # Adjust margins
+        scene_aspectmode='cube',  # Make the plot aspect uniform
     )
     
     return fig
