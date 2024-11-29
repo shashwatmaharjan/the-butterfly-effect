@@ -403,7 +403,7 @@ def main():
             dcc.Graph(id='fig1',
                       figure=fig1,
                       style={'width': '100%',},
-                      config={'scrollZoom': False, 'displayModeBar': True, 'staticPlot': True}
+                      config={'scrollZoom': False, 'displayModeBar': True}
                       )
             ],
             
@@ -417,7 +417,7 @@ def main():
             dcc.Graph(id='fig2',
                       figure=fig2,
                       style={'width': '100%',},
-                      config={'scrollZoom': False, 'displayModeBar': True, 'staticPlot': True}
+                      config={'scrollZoom': False, 'displayModeBar': True}
                       )
             ],
             
