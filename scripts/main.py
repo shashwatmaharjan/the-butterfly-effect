@@ -254,7 +254,7 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
         font=font_style,
         margin=dict(l=0, r=0, t=0, b=0),  # Adjust margins
         scene_aspectmode='cube',  # Make the plot aspect uniform,
-        updatemenus=[dict(type='buttons', buttons=[dict(label='Animate',
+        updatemenus=[dict(type='buttons', x=0.5, xanchor='center', font=dict(size=font_size+10, color='red'), buttons=[dict(label='Click to ANIMATE!',
                                                          method='animate',
                                                          args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
