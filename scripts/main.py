@@ -10,6 +10,7 @@ from dash import Dash, dcc, html
 from dash.dependencies import Input, Output, State
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import dash
 
 # Function to define the Lorenz ODEs
 def lorenz_ode(t, state, sigma, rho, beta):
@@ -617,7 +618,18 @@ def main():
          State('rho-2', 'value'),
          State('beta-2', 'value')])
     
-    def update_plots(n_clicks, x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2):
+    def update_or_animate_plots(n_clicks, x0_1, y0_1, z0_1, x0_2, y0_2, z0_2, sigma_1, rho_1, beta_1, sigma_2, rho_2, beta_2):
+        
+        # Determine which button was clicked
+        ctx = dash.callback_context
+        
+        # Important to prevent unnecessary updates
+        # Or the if the app loads and the button may run even if it was not clicked and can produce errors
+        if not ctx.triggered:
+            raise dash.exceptions.PreventUpdate
+        
+        # Get the ID of the button that was clicked
+        trigger_id = ctx.triggered[0]['prop_id'].split('.')[0]
         
         # Solve the ODEs
         solution_1 = solve_lorenz_ode(sigma_1, rho_1, beta_1, [x0_1, y0_1, z0_1], t0, tf, dt)
@@ -627,17 +639,19 @@ def main():
         solution_1 = np.array(solution_1)
         solution_2 = np.array(solution_2)
         
-        # Plot of time vs x, y, z
-        fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
-        
-        # Plot of x, y, z against each other
-        fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
-        
-        # Plot of x, y, z in 3D
-        fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
-        
-        return fig1, fig2, fig3
-    
+        if trigger_id == 'visualize-button':
+            
+            # Plot of time vs x, y, z
+            fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+            
+            # Plot of x, y, z against each other
+            fig2 = plot_xyz(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+            
+            # Plot of x, y, z in 3D
+            fig3 = plot_3d(solution_1, solution_2, plot_color_1, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+            
+            return fig1, fig2, fig3
+                
     return app
 
 
