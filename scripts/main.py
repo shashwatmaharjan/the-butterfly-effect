@@ -159,6 +159,25 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
 # Function to plot the Lorenz ODEs in 3D
 def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_size, font_style):
     
+    # Specify spacing for the ticks
+    tick_spacing = 7
+    
+    # Make uniform axis for all plots
+    # x-axis
+    x_value_min = min(solution_1[0].min(), solution_2[0].min()) - 2
+    x_value_max = max(solution_1[0].max(), solution_2[0].max()) + 2
+    x_value_ticks = np.arange(x_value_min, x_value_max, tick_spacing).astype(int)
+    
+    # y-axis
+    y_value_min = min(solution_1[1].min(), solution_2[1].min()) - 2
+    y_value_max = max(solution_1[1].max(), solution_2[1].max()) + 2
+    y_value_ticks = np.arange(y_value_min, y_value_max, tick_spacing).astype(int)
+    
+    # z-axis
+    z_value_min = min(solution_1[2].min(), solution_2[2].min()) - 2
+    z_value_max = max(solution_1[2].max(), solution_2[2].max()) + 2
+    z_value_ticks = np.arange(z_value_min, z_value_max, tick_spacing).astype(int)
+    
     # Decreate the font size for the 3D plot
     font_size = font_size
     
@@ -173,9 +192,9 @@ def plot_3d(solution_1, solution_2, color_1, color_2, background_color, font_siz
     # Update layout to remove grid
     fig.update_layout(
         scene=dict(
-            xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-            yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
-            zaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size)),
+            xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=x_value_ticks, range=[x_value_min, x_value_max]),
+            yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=y_value_ticks, range=[y_value_min, y_value_max]),
+            zaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=z_value_ticks, range=[z_value_min, z_value_max]),
             
             camera=dict(up=dict(x=0, y=0, z=1), # Keeps the z-axis pointing up
                         center=dict(x=0, y=0, z=0), # Set rotation center
