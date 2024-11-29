@@ -101,7 +101,7 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
             x=0.5,
             font=dict(size=font_size)),
         font=font_style,
-        updatemenus=[dict(type='buttons', x=0.5, xanchor='center', y=2, buttons=[dict(label='Animate',
+        updatemenus=[dict(type='buttons', x=0.5, xanchor='center', y=2, font=dict(size=font_size+10, color='red'), buttons=[dict(label='Click to ANIMATE!',
                                                          method='animate',
                                                          args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
@@ -180,7 +180,7 @@ def plot_xyz(solution_1, solution_2, color_1, color_2, background_color, font_si
             x=0.5,
             font=dict(size=font_size)),
         font=font_style,
-        updatemenus=[dict(type='buttons', buttons=[dict(label='Animate',
+        updatemenus=[dict(type='buttons', x=0.5, xanchor='center', y=2, font=dict(size=font_size+10, color='red'), buttons=[dict(label='Click to ANIMATE!',
                                                          method='animate',
                                                          args=[None, {"frame": {"duration": 100, "redraw": True}, "fromcurrent": True, "transition": {"duration": 0}}])])],
     )
