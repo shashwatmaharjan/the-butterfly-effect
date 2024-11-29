@@ -73,12 +73,12 @@ def plot_time_versus_xyz(solution_1, solution_2, timepoints, color_1, color_2, b
         
     # Update layout to remove grid
     fig.update_layout(
-        xaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
-        xaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis2=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
-        xaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
-        yaxis3=dict(showgrid=False, title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
+        xaxis=dict(showgrid=False, title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
+        yaxis=dict(showgrid=False, title='x(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
+        xaxis2=dict(showgrid=False, title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
+        yaxis2=dict(showgrid=False, title='y(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
+        xaxis3=dict(showgrid=False,title='time(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=t_ticks),
+        yaxis3=dict(showgrid=False,title='z(t)', title_font=dict(size=font_size), tickfont=dict(size=font_size), tickvals=ordinate_ticks, range=[ordinate_min, ordinate_max]),
         plot_bgcolor=background_color,
         paper_bgcolor=background_color,
         legend=dict(
