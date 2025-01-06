@@ -305,6 +305,8 @@ def main():
     dashboard_background_color = '#f0f5f9'
     plot_color_1 = '#0000FF' # blue
     plot_color_2 = '#FFA500' # orange
+    green_color = '#4CAF50' # green
+    pink_color = '#FF8DA1' # pink
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
