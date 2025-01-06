@@ -385,10 +385,19 @@ def main():
         # Horizontal line
         html.Hr(),
         
-        html.H2(id='sub-title',
-                children='Try changing the initial conditions and see how the trajectories diverge.',
+        html.H2(id='sub-title-1',
+                children='In this interactive visualization, we’ll explore how small changes in initial parameters lead to strikingly different paths in the Lorenz system, vividly \
+                            demonstrating the butterfly effect in action. Whether you’re new to the concept or a seasoned mathematician, this project invites you to experience the power \
+                            of small changes and their surprising consequences.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family'],
+                       'color': green_color}),
+        
+        html.H1(id='sub-title-2',
+                children='Try changing the initial conditions and see how the trajectories diverge!',
                 style={'textAlign': 'center',
-                       'font-family': font_style['family'],}),
+                       'font-family': font_style['family'],
+                       'color': pink_color}),
         
         # Horizontal line
         html.Hr(),
