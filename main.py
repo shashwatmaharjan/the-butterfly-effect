@@ -354,6 +354,13 @@ def main():
                 style={'textAlign': 'justify',
                        'font-family': font_style['family'],}),
         
+        # Why does it matter?
+        html.H1(id='why-does-it-matter-header',
+                children='Why Does It Matter?',
+                style={'textAlign': 'center',
+                       'font-family': font_style['family'],
+                       'color': green_color}),
+        
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center',
