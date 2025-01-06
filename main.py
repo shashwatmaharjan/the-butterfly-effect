@@ -390,8 +390,7 @@ def main():
                             demonstrating the butterfly effect in action. Whether you’re new to the concept or a seasoned mathematician, this project invites you to experience the power \
                             of small changes and their surprising consequences.',
                 style={'textAlign': 'justify',
-                       'font-family': font_style['family'],
-                       'color': green_color}),
+                       'font-family': font_style['family']}),
         
         html.H1(id='sub-title-2',
                 children='Try changing the initial conditions and see how the trajectories diverge!',
