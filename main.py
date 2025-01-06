@@ -336,7 +336,7 @@ def main():
                 children='The Butterfly Effect: How Small Changes Create Big Impacts',
                 style={'textAlign': 'center',
                        'font-family': font_style['family'],
-                       'color': blue_color}),
+                       'color': pink_color}),
         
         # Description
         html.H2(id='intro-description-1',
