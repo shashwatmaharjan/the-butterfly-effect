@@ -399,6 +399,11 @@ def main():
                        'font-family': font_style['family'],
                        'color': pink_color}),
         
+        html.H2(id='sub-title-generate',
+                children='Press the Generate Button to start the animation and the Reset Button to start over.',
+                style={'textAlign': 'center',
+                       'font-family': font_style['family']}),
+        
         # Horizontal line
         html.Hr(),
                     
