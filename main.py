@@ -304,7 +304,7 @@ def main():
     # Define colors
     dashboard_background_color = '#f0f5f9'
     blue_color = '#0000FF' # blue
-    plot_color_2 = '#FFA500' # orange
+    orange_color = '#FFA500' # orange
     green_color = '#4CAF50' # green
     pink_color = '#FF8DA1' # pink
     
@@ -314,13 +314,13 @@ def main():
     font_size_plots = 15
     
     # Plot of time vs x, y, z
-    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+    fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
     
     # Plot of x, y, z against each other
-    fig2 = plot_xyz(solution_1, solution_2, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+    fig2 = plot_xyz(solution_1, solution_2, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
     
     # Plot of x, y, z in 3D
-    fig3 = plot_3d(solution_1, solution_2, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+    fig3 = plot_3d(solution_1, solution_2, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
     
     # Define the default border radius
     border_radius = '2px'
@@ -438,13 +438,13 @@ def main():
                         children='Chaotic Path B',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
-                                'color': plot_color_2}),
+                                'color': orange_color}),
                 
                 html.H3(id='ic-2',
                         children='Initial Position',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
-                               'color': plot_color_2}),
+                               'color': orange_color}),
                         
                 html.Div([html.Div(['x: ', dcc.Input(id='x0_2', type = 'number', value = default_initial_state_2[0], min=-10, max=10, required=True,  style={'width': '50px',
                                                                                                                                     'text-align': 'center',
@@ -470,7 +470,7 @@ def main():
                     html.H3(children='Sigma (σ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],
-                                   'color': plot_color_2}),
+                                   'color': orange_color}),
                     
                     html.Div([html.Div([dcc.Slider(id='sigma-2', min=7, max=12, step=1,
                                                    value=default_sigma_2,
@@ -479,7 +479,7 @@ def main():
                     html.H3(children='Rho (ρ)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],
-                                   'color': plot_color_2}),
+                                   'color': orange_color}),
                     
                     html.Div([html.Div([dcc.Slider(id='rho-2', min=27, max=32, step=1,
                                                    value=default_rho_2,
@@ -488,7 +488,7 @@ def main():
                     html.H3(children='Beta (β)',
                             style={'textAlign': 'center',
                                    'font-family': font_style['family'],
-                                   'color': plot_color_2}),
+                                   'color': orange_color}),
                     
                     html.Div([html.Div([dcc.Slider(id='beta-2',min=2, max=2.5, step=0.1,
                                                    value=default_beta_2,
@@ -655,13 +655,13 @@ def main():
         solution_2 = np.array(solution_2)
         
         # Plot of time vs x, y, z
-        fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        fig1 = plot_time_versus_xyz(solution_1, solution_2, timepoints, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
         
         # Plot of x, y, z against each other
-        fig2 = plot_xyz(solution_1, solution_2, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        fig2 = plot_xyz(solution_1, solution_2, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
         
         # Plot of x, y, z in 3D
-        fig3 = plot_3d(solution_1, solution_2, blue_color, plot_color_2, dashboard_background_color, font_size_plots, font_style)
+        fig3 = plot_3d(solution_1, solution_2, blue_color, orange_color, dashboard_background_color, font_size_plots, font_style)
         
         return fig1, fig2, fig3
                 
