@@ -382,6 +382,9 @@ def main():
                 style={'textAlign': 'justify',
                        'font-family': font_style['family']}),
         
+        # Horizontal line
+        html.Hr(),
+        
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center',
