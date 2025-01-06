@@ -331,7 +331,7 @@ def main():
         
         # Title
         html.H1(id='title',
-                children='The Butterfly Effect',
+                children='The Butterfly Effect: How Small Changes Create Big Impacts',
                 style={'textAlign': 'center',
                        'font-family': font_style['family'],}),
         
