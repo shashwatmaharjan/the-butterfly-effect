@@ -387,7 +387,7 @@ def main():
         html.Hr(),
         
         html.H1(id='sub-title-1',
-                children='Try changing the initial conditions and see how the trajectories change!',
+                children='Try changing the initial positions and see how the trajectories change!',
                 style={'textAlign': 'center',
                        'font-family': font_style['family'],
                        'color': pink_color}),
