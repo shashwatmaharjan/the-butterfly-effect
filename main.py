@@ -333,7 +333,8 @@ def main():
         html.H1(id='title',
                 children='The Butterfly Effect: How Small Changes Create Big Impacts',
                 style={'textAlign': 'center',
-                       'font-family': font_style['family'],}),
+                       'font-family': font_style['family'],
+                       'color': plot_color_1}),
         
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
