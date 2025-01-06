@@ -722,7 +722,8 @@ def main():
 app = main()
 
 # Run the app server
-app.run_server(debug=True)
+# app.run_server(debug=True)
+app.run_server(debug=True, port=8050, host='0.0.0.0')
 
 # Clear the console regardless of the OS
 os.system('cls' if os.name == 'nt' else 'clear')
