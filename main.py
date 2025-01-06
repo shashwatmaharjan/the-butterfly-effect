@@ -395,7 +395,7 @@ def main():
                 children='In this interactive visualization, we’ll explore how small changes in initial parameters lead to strikingly different paths in the Lorenz system, vividly \
                             demonstrating the butterfly effect in action. Whether you’re new to the concept or a seasoned mathematician, this project invites you to experience the power \
                             of small changes and their surprising consequences. Press the Generate Button to start the animation and the Reset Button to start over.',
-                style={'textAlign': 'center',
+                style={'textAlign': 'justify',
                        'font-family': font_style['family']}),
         
         # Horizontal line
