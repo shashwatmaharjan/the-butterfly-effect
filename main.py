@@ -346,7 +346,6 @@ def main():
                 style={'textAlign': 'justify',
                        'font-family': font_style['family'],}),
         
-        
         html.H2(id='intro-description-2',
                 children='For this project, we’ll dive into the mathematics behind the butterfly effect using the Lorenz equations, a set of differential equations\
                             that describe atmospheric dynamics. But don’t worry—you won’t need a degree in math to grasp the fascinating insights. Instead, we will use\
