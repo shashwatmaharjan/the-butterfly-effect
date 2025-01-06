@@ -307,6 +307,7 @@ def main():
     orange_color = '#FFA500' # orange
     green_color = '#4CAF50' # green
     pink_color = '#FF8DA1' # pink
+    red_color = '#FF0000' # red
     
     # Define common styles for font
     font_style = {'family': 'Courier New, Courier, monospace'}
@@ -395,6 +396,17 @@ def main():
                 children='In this interactive visualization, we’ll explore how small changes in initial parameters lead to strikingly different paths in the Lorenz system, vividly \
                             demonstrating the butterfly effect in action. Whether you’re new to the concept or a seasoned mathematician, this project invites you to experience the power \
                             of small changes and their surprising consequences.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-3',
+                children=[html.Span('Press the '),
+                          html.Span('Generate ', style={'color': green_color}),
+                          html.Span('Button to generate the updated solutions, the '),
+                          html.Span('Reset ', style={'color': pink_color}),
+                          html.Span('Button to start over, and '),
+                          html.Span('Click to ANIMATE! ', style={'color': red_color}),
+                          html.Span('to see the trajectories in motion.')],
                 style={'textAlign': 'justify',
                        'font-family': font_style['family']}),
         
