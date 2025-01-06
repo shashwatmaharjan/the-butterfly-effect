@@ -360,6 +360,28 @@ def main():
                        'font-family': font_style['family'],
                        'color': green_color}),
         
+        html.H2(id='why-does-it-matter-description-1',
+                children='1. Weather Forecasting: Ever wonder why forecasts beyond a few days are often unreliable? Small measurement inaccuracies or changes in atmospheric \
+                            conditions can dramatically shift weather outcomes.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='why-does-it-matter-description-2',
+                children='2. Financial Markets: A single unexpected event, like a tweet or policy change, can ripple through global markets, leading to unpredictable fluctuations.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='why-does-it-matter-description-3',
+                children='3. Healthcare: Tiny mutations in a virus strain can determine whether it causes a mild cold or a global pandemic.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='why-does-it-matter-description-4',
+                children='4. Personal Decisions: On a personal level, think of how a seemingly minor choice—choosing to meet a friend, read a book, or take a walk—can shape the \
+                            course of your life in unforeseen ways.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center',
