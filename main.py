@@ -336,6 +336,22 @@ def main():
                        'font-family': font_style['family'],
                        'color': plot_color_1}),
         
+        # Description
+        html.H2(id='intro-description-1',
+                children='Imagine a butterfly flapping its wings in Brazil, setting off a cascade of events that eventually trigger a tornado in Texas. \
+                            This might sound like science fiction, but it’s a poetic metaphor for a profound scientific concept known as the “butterfly effect.” \
+                            At its core, the butterfly effect explores how tiny differences in initial conditions can lead to vastly different outcomes over time.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family'],}),
+        
+        
+        html.H2(id='intro-description-2',
+                children='For this project, we’ll dive into the mathematics behind the butterfly effect using the Lorenz equations, a set of differential equations\
+                            that describe atmospheric dynamics. But don’t worry—you won’t need a degree in math to grasp the fascinating insights. Instead, we will use\
+                            data visualization to illuminate how this principle shapes real-world scenarios.',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family'],}),
+        
         html.H2(id='sub-title',
                 children='Try changing the initial conditions and see how the trajectories diverge.',
                 style={'textAlign': 'center',
