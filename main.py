@@ -354,6 +354,9 @@ def main():
                 style={'textAlign': 'justify',
                        'font-family': font_style['family'],}),
         
+        # Horizontal line
+        html.Hr(),
+        
         # Why does it matter?
         html.H1(id='why-does-it-matter-header',
                 children='Why Does It Matter?',
@@ -383,23 +386,14 @@ def main():
                 style={'textAlign': 'justify',
                        'font-family': font_style['family']}),
         
-        # Horizontal line
-        html.Hr(),
-        
-        html.H1(id='sub-title-1',
-                children='Try changing the initial parameters and see how the trajectories change!',
-                style={'textAlign': 'center',
-                       'font-family': font_style['family'],
-                       'color': pink_color}),
-        
-        html.H2(id='sub-title-2',
+        html.H2(id='sub-title-1',
                 children='In this interactive visualization, we’ll explore how small changes in initial parameters lead to strikingly different paths in the Lorenz system, vividly \
                             demonstrating the butterfly effect in action. Whether you’re new to the concept or a seasoned mathematician, this project invites you to experience the power \
                             of small changes and their surprising consequences.',
                 style={'textAlign': 'justify',
                        'font-family': font_style['family']}),
         
-        html.H2(id='sub-title-3',
+        html.H2(id='sub-title-2',
                 children=[html.Span('Press the '),
                           html.Span('Generate ', style={'color': green_color}),
                           html.Span('Button to generate the updated solutions, the '),
@@ -413,10 +407,11 @@ def main():
         # Horizontal line
         html.Hr(),
         
-        html.H2(id='sub-title-4',
+        html.H1(id='sub-title-4',
                 children='But, what do these variables mean?',
-                style={'textAlign': 'justify',
-                       'font-family': font_style['family']}),
+                style={'textAlign': 'center',
+                       'font-family': font_style['family'],
+                       'color': pink_color}),
         
         html.H2(id='sub-title-4-1',
                 children=[html.Span('x ', style={'color': green_color}),
@@ -462,6 +457,12 @@ def main():
         
         # Horizontal line
         html.Hr(),
+        
+        html.H1(id='sub-title-1',
+                children='Try changing the initial parameters and see how the trajectories change!',
+                style={'textAlign': 'center',
+                       'font-family': font_style['family'],
+                       'color': green_color}),
                     
         # Container for the two columns for the initial conditions
         html.Div([
