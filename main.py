@@ -387,7 +387,7 @@ def main():
         html.Hr(),
         
         html.H1(id='sub-title-1',
-                children='Try changing the initial positions and see how the trajectories change!',
+                children='Try changing the initial parameters and see how the trajectories change!',
                 style={'textAlign': 'center',
                        'font-family': font_style['family'],
                        'color': pink_color}),
@@ -424,7 +424,7 @@ def main():
                                'font-family': font_style['family'],
                                 'color': blue_color}),
                 html.H3(id='ic-1',
-                        children='Initial Position',
+                        children='Initial Parameters',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
                                 'color': blue_color}),
@@ -492,7 +492,7 @@ def main():
                                 'color': orange_color}),
                 
                 html.H3(id='ic-2',
-                        children='Initial Position',
+                        children='Initial Parameter',
                         style={'textAlign': 'center',
                                'font-family': font_style['family'],
                                'color': orange_color}),
