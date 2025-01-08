@@ -412,6 +412,56 @@ def main():
         
         # Horizontal line
         html.Hr(),
+        
+        html.H2(id='sub-title-4',
+                children='But, what do these variables mean?',
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-1',
+                children=[html.Span('x ', style={'color': green_color}),
+                          html.Span(': Think of it as the wind speed in a storm. If the wind changes direction or strength, it can \
+                                    drastically shift what the storm does.', ),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-2',
+                children=[html.Span('y ', style={'color': green_color}),
+                          html.Span(': Imagine it is the difference in temperature between two parts of a room. If one side is super \
+                              hot and the other is cold, air starts moving between them, creating chaos.', ),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-3',
+                children=[html.Span('z ', style={'color': green_color}),
+                          html.Span(': Picture it as the heat in the whole system, like how hot a room gets when you turn on a heater. \
+                                    The hotter it gets, the more unpredictable things become.',),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-4',
+                children=[html.Span('Sigma (σ) ', style={'color': pink_color}),
+                          html.Span(': Imagine you are stirring soup. σ is like how fast the soup spreads out when you stir it. A low  \
+                                    σ means it moves slowly, and a high σ means it mixes quickly.',),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-5',
+                children=[html.Span('Rho (σ) ', style={'color': pink_color}),
+                          html.Span(': Think of ρ as turning up the stove under the soup pot. A low ρ means the heat isn’t strong enough to boil,\
+                              but crank it up, and things start bubbling unpredictably.',),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        html.H2(id='sub-title-4-6',
+                children=[html.Span('Beta (β) ', style={'color': pink_color}),
+                          html.Span(': Picture the shape of the pot you’re cooking in. A wide, shallow pot bubbles differently than a tall, \
+                              narrow one. That is what β does—it changes how the system behaves based on its “shape.”',),],
+                style={'textAlign': 'justify',
+                       'font-family': font_style['family']}),
+        
+        # Horizontal line
+        html.Hr(),
                     
         # Container for the two columns for the initial conditions
         html.Div([
