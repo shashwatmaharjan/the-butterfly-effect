@@ -442,7 +442,7 @@ def main():
                        'font-family': font_style['family']}),
         
         html.H2(id='sub-title-4-5',
-                children=[html.Span('Rho (σ) ', style={'color': pink_color}),
+                children=[html.Span('Rho (ρ) ', style={'color': pink_color}),
                           html.Span(': Think of ρ as turning up the stove under the soup pot. A low ρ means the heat isn’t strong enough to boil,\
                               but crank it up, and things start bubbling unpredictably.',),],
                 style={'textAlign': 'justify',
